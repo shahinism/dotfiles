@@ -15,7 +15,7 @@ accepted by `set-default-attribute'."
   (when spec
     (apply 'set-face-attribute 'default nil spec)))
 
-;; TODO set font only when available
+;; TODO set font only when availabe
 (lt/ui--set-default-font '(:font "FiraCode Nerd Font" :weight regular :height 100))
 
 ;;; Modeline
