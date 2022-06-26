@@ -52,8 +52,5 @@
 (push '(vertical-scroll-bars) default-frame-alist)
 (push '(mouse-color . "white") default-frame-alist)
 
-;; loads a nice blue theme, avoids the white screen flash on startup
-(load-theme 'deeper-blue t)
-
 ;; Use fundamental-mode to have faster load for initial buffer
 (customize-set-variable 'initial-major-mode 'fundamental-mode)

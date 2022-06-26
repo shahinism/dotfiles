@@ -4,7 +4,7 @@
 (lt/install-package 'doom-modeline)
 (lt/install-package 'elisp-demos)
 (lt/install-package 'helpful)
-(lt/install-package 'zenburn-theme)
+(lt/install-package 'doom-themes)
 
 ;;; Font
 (defun lt/ui--set-default-font (spec)
@@ -45,9 +45,10 @@ accepted by `set-default-attribute'."
 (global-set-key (kbd "C-h K") #'describe-keymap)
 
 ;; Theme
-(load-theme 'zenburn t)
-(setq zenburn-use-variable-pitch t)
-(setq zenburn-scale-org-headlines t)
-(setq zenburn-scale-outline-headlines t)
+(require 'doom-themes)
+(setq doom-themes-enable-bold t
+      doom-themes-enable-italic t)
+
+(load-theme 'doom-zenburn t)
 
 (provide 'lt-ui)
