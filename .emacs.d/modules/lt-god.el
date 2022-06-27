@@ -7,6 +7,7 @@
 ;; Toggle through local mode
 ;; Future note: It's also possible to toggle all buffers
 (global-set-key (kbd "<escape>") #'god-local-mode)
+(define-key god-local-mode-map (kbd "i") #'god-local-mode)
 
 ;; Visual indicator
 (defun my-god-mode-update-cursor-type ()

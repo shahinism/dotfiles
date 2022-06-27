@@ -40,6 +40,8 @@
 (require 'lt-programming)
 (require 'lt-python)
 (require 'lt-ui)
+(require 'lt-env)
+(require 'lt-navigation)
 
 ;; Automatically added
 (custom-set-variables
@@ -50,7 +52,7 @@
  '(custom-safe-themes
    '("443e2c3c4dd44510f0ea8247b438e834188dc1c6fb80785d83ad3628eadf9294" default))
  '(package-selected-packages
-   '(doom-themes zenburn-theme elisp-demos elisp-mode helpful doom-modeline all-the-icons flycheck pyvenv numpydoc blacken anaconda-mode eglot magit hl-todo vertico orderless marginalia embark-consult embark corfu-doc consult cape god-mode use-package)))
+   '(hydra avy direnv esup doom-themes zenburn-theme elisp-demos elisp-mode helpful doom-modeline all-the-icons flycheck pyvenv numpydoc blacken anaconda-mode eglot magit hl-todo vertico orderless marginalia embark-consult embark corfu-doc consult cape god-mode use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
