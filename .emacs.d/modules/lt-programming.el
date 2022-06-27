@@ -3,6 +3,7 @@
 (lt/install-package 'magit)
 (lt/install-package 'eglot)
 (lt/install-package 'flycheck)
+(lt/install-package 'terraform-mode)
 
 ;; Show the name of the current function definition in the modeline
 (require 'which-func)
