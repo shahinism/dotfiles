@@ -27,8 +27,8 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # Tell Antigen that you're done.
 antigen apply
 
-#. /opt/asdf-vm/asdf.sh
-#source /usr/share/doc/git-extras/git-extras-completion.zsh
+. /opt/asdf-vm/asdf.sh
+source /usr/share/doc/git-extras/git-extras-completion.zsh
 
 function ssm_upload_key {
     PUBLIC_KEY=$(ssh-keygen -y -f $1)
