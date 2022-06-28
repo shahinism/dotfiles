@@ -1,3 +1,12 @@
+# check if the antigen is installed, install it if it's not
+ANTIGEN_CONF=~/.antigen.zsh
+
+if [[ ! -f "$ANTIGEN_CONF" ]]; then
+    echo "Failed to find antigen, installing it..."
+    rm -rfv ~/.antigen/
+    curl -L git.io/antigen > ~/.antigen.zsh
+fi
+
 source ~/.antigen.zsh
 
 # Load the oh-my-zsh's library.
@@ -15,14 +24,11 @@ antigen bundle nojhan/liquidprompt
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
-# Load the theme.
-antigen theme robbyrussell
-
 # Tell Antigen that you're done.
 antigen apply
 
-. /opt/asdf-vm/asdf.sh
-source /usr/share/doc/git-extras/git-extras-completion.zsh
+#. /opt/asdf-vm/asdf.sh
+#source /usr/share/doc/git-extras/git-extras-completion.zsh
 
 function ssm_upload_key {
     PUBLIC_KEY=$(ssh-keygen -y -f $1)
@@ -31,4 +37,4 @@ function ssm_upload_key {
 }
 
 # opam configuration
-[[ ! -r /home/shahin/.opam/opam-init/init.zsh ]] || source /home/shahin/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+[[ ! -r /home/shahin/.opam/opam-init/init.zsh ]] || source /home/shahin/.opam/opam-init/init.zsh > /dev/null 2> /dev/null
