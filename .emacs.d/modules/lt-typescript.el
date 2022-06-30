@@ -21,4 +21,8 @@
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
+;; Enable eglot
+(when (fboundp #'eglot-ensure)
+  (add-hook 'typescript-mode-hook #'eglot-ensure))
+
 (provide 'lt-typescript)
