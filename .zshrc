@@ -20,7 +20,7 @@ antigen bundle pip
 antigen bundle direnv
 antigen bundle command-not-found
 antigen bundle nojhan/liquidprompt
-
+antigen bundle blimmer/zsh-aws-vault@main
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
