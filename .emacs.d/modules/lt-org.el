@@ -4,6 +4,9 @@
 (lt/install-package 'org-bullets)
 
 (require 'org)
+(require 'org-tempo) ;; enable org templates; by default it's disabled
+                     ;; on Org > 9.2, more info:
+                     ;; https://emacs.stackexchange.com/a/46992
 
 (setq org-use-speed-commands t
       org-src-fontify-natively t
