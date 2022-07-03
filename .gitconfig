@@ -1,0 +1,19 @@
+[user]
+	email = hi@shahinism.com
+	name = Reza (Shahin) Khanipour
+        signingkey = hi@shahinism.com
+
+[includeIf "gitdir:~/Work/Projects/DataChef/PostNL/"]
+        path = .gitconfig.d/postnl
+
+[includeIf "gitdir:~/Work/Projects/DataChef/Internal/"]
+        path = .gitconfig.d/datachef
+
+[includeIf "gitdir:~/Work/Projects/DataChef/Syngenta/"]
+        path = .gitconfig.d/datachef
+
+[includeIf "gitdir:~/Work/Projects/DataChef/CarNext_DataLake/"]
+        path = .gitconfig.d/datachef
+
+[commit]
+    gpgSign = true
