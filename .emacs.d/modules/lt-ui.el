@@ -5,6 +5,7 @@
 (lt/install-package 'elisp-demos)
 (lt/install-package 'helpful)
 (lt/install-package 'doom-themes)
+(lt/install-package 'which-key)
 
 ;;; Font
 (defun lt/ui--set-default-font (spec)
@@ -50,5 +51,9 @@ accepted by `set-default-attribute'."
       doom-themes-enable-italic t)
 
 (load-theme 'doom-zenburn t)
+
+;; which key help
+(require 'which-key)
+(which-key-mode)
 
 (provide 'lt-ui)
