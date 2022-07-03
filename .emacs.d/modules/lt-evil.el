@@ -50,6 +50,16 @@
   "fr" 'consult-recent-file
   "fs" 'save-buffer
   "bb" 'switch-to-buffer
-  "gs" 'magit-status)
+  "gs" 'magit-status
+  "wh" 'evil-window-left
+  "wj" 'evil-window-down
+  "wk" 'evil-window-up
+  "wl" 'evil-window-right
+  "w/" 'split-window-right
+  "w-" 'split-window-below
+  "wdd" 'delete-window
+  "wda" 'ace-delete-window
+  "wa" 'ace-window
+  "ws" 'ace-swap-window)
 
 (provide 'lt-evil)
