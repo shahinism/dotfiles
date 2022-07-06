@@ -65,7 +65,8 @@
   "cp" 'evilnc-comment-or-uncomment-paragraphs
   "cr" 'evilnc-comment-or-uncomment-region
   "c." 'evilnc-copy-and-comment-operator
-  "pa" 'consult-ag
+  "pa" 'consult-git-grep   ;; FIXME currently consult-ag is not
+                           ;; returning any response
   "pb" 'project-switch-to-buffer
   "pd" 'project-find-dir
   "pf" 'project-find-file
