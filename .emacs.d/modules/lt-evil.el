@@ -64,6 +64,14 @@
   "cc" 'evilnc-copy-and-comment-lines
   "cp" 'evilnc-comment-or-uncomment-paragraphs
   "cr" 'evilnc-comment-or-uncomment-region
-  "c." 'evilnc-copy-and-comment-operator)
+  "c." 'evilnc-copy-and-comment-operator
+  "pa" 'consult-ag
+  "pb" 'project-switch-to-buffer
+  "pd" 'project-find-dir
+  "pf" 'project-find-file
+  "pk" 'project-kill-buffers
+  "pr" 'project-query-replace-regexp
+  "pc" 'project-compile
+  "pp" 'project-switch-project)
 
 (provide 'lt-evil)
