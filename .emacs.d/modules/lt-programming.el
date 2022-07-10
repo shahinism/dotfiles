@@ -4,10 +4,13 @@
 (lt/install-package 'eglot)
 (lt/install-package 'flycheck)
 (lt/install-package 'terraform-mode)
+(lt/install-package 'yasnippet)
+(lt/install-package 'yasnippet-snippets)
 (lt/install-package 'dash-docs)
 (lt/install-package 'consult-dash)
 (lt/install-package 'consult-eglot)
 (lt/install-package 'consult-flycheck)
+(lt/install-package 'consult-yasnippet)
 
 ;; Show the name of the current function definition in the modeline
 (require 'which-func)
@@ -28,5 +31,10 @@
 ;; Consult dash
 ;; https://codeberg.org/ravi/consult-dash
 (consult-customize consult-dash :initial (thing-at-point 'symbol))
+ 
+;; Yasnippet
+(require 'yasnippet)
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
 
 (provide 'lt-programming)

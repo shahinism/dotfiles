@@ -49,6 +49,7 @@
 (require 'lt-typescript)
 (require 'lt-kotlin)
 (require 'lt-org)
+(require 'lt-shell)
 ;; Automatically added
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -58,7 +59,16 @@
  '(custom-safe-themes
    '("443e2c3c4dd44510f0ea8247b438e834188dc1c6fb80785d83ad3628eadf9294" default))
  '(package-selected-packages
-   '(consult-flycheck consult-eglot consult-dash exec-path-from-shell evil-easymotion which-key org-bullets org-appear general undo-tree evil-nerd-commenter evil-collection evil smartparens kotlin-mode tide js2-refactor typescript-mode terraform-mode ace-window hydra avy direnv esup doom-themes zenburn-theme elisp-demos elisp-mode helpful doom-modeline all-the-icons flycheck pyvenv numpydoc blacken anaconda-mode eglot magit hl-todo vertico orderless marginalia embark-consult embark corfu-doc consult cape god-mode use-package)))
+   '(aweshell eshell-z shell-pop eshell-toggle eshell-up kind-icon consult-yasnippet yasnippet-snippets consult-flycheck consult-eglot consult-dash exec-path-from-shell evil-easymotion which-key org-bullets org-appear general undo-tree evil-nerd-commenter evil-collection evil smartparens kotlin-mode tide js2-refactor typescript-mode terraform-mode ace-window hydra avy direnv esup doom-themes zenburn-theme elisp-demos elisp-mode helpful doom-modeline all-the-icons flycheck pyvenv numpydoc blacken anaconda-mode eglot magit hl-todo vertico orderless marginalia embark-consult embark corfu-doc consult cape god-mode use-package))
+ '(shell-pop-autocd-to-working-dir t)
+ '(shell-pop-cleanup-buffer-at-process-exit t)
+ '(shell-pop-default-directory "~/")
+ '(shell-pop-full-span t)
+ '(shell-pop-restore-window-configuration t)
+ '(shell-pop-shell-type '("eshell" "*eshell*" (lambda nil (eshell))))
+ '(shell-pop-universal-key "C-t")
+ '(shell-pop-window-position "bottom")
+ '(shell-pop-window-size 30))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

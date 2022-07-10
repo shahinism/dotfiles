@@ -74,6 +74,8 @@
   "pc" 'project-compile
   "pp" 'project-switch-project
   "d." 'consult-dash
-  "e"  'consult-flycheck)
+  "e"  'consult-flycheck
+  "is" 'consult-yasnippet
+  "tt" 'shell-pop)
 
 (provide 'lt-evil)
