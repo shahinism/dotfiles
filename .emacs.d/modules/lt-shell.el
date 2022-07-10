@@ -1,6 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
-(lt/install-package 'shell-pop)
 (lt/install-package 'eshell-z)
 
 ;; Functions
@@ -31,22 +30,50 @@
          (lt/shell-sudo-add)))
      ))
 
-;; Configuration
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(shell-pop-default-directory "~/")
- '(shell-pop-shell-type '("eshell" "*eshell*" (lambda nil (eshell))))
- '(shell-pop-universal-key "C-t")
- '(shell-pop-window-size 30)
- '(shell-pop-full-span t)
- '(shell-pop-window-position "bottom")
- '(shell-pop-autocd-to-working-dir t)
- '(shell-pop-restore-window-configuration t)
- '(shell-pop-cleanup-buffer-at-process-exit t))
+(defun spawn-shell (name)
+  "Invoke a new shell named as NAME."
+  (interactive "MName of the shell: ")
+  (pop-to-buffer (get-buffer-create (generate-new-buffer-name name)))
+  (eshell (current-buffer)))
 
+(defun lt/eshell-pop-show (name)
+  "Create a pop up window with eshell named NAME."
+  (let* ((window (select-window (split-window
+                                 (frame-root-window)
+                                 '45
+                                 'below)))
+         (buffer (get-buffer name)))
+
+    (select-window window)
+    (if buffer
+        (set-window-buffer window name)
+      (progn
+        (eshell window)
+        (rename-buffer name)))
+    ))
+
+(defun lt/eshell-pop-hide (name)
+  "Hide the existing pop up window with eshell named NAME."
+  (let ((shell-buffer (get-buffer-window name)))
+    (select-window shell-buffer)
+    (bury-buffer)
+    (delete-window)))
+
+(defun lt/eshell-pop-toggle ()
+  "Toggle eshell pop up window."
+  (interactive)
+  (let ((name "shell-buffer"))
+    name
+    (if (get-buffer-window name)
+        (lt/eshell-pop-hide name)
+      (lt/eshell-pop-show name))
+    ))
+
+(lt/eshell-pop-show "shahin")
+(lt/eshell-pop-hide "shahin")
+(lt/eshell-pop-toggle)
+
+;; Configuration
 (add-hook 'eshell-mode-hook
           (lambda ()
             (require 'eshell-z)))

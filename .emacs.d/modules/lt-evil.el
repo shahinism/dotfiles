@@ -76,6 +76,6 @@
   "d." 'consult-dash
   "e"  'consult-flycheck
   "is" 'consult-yasnippet
-  "tt" 'shell-pop)
+  "tt" 'lt/eshell-pop-toggle)
 
 (provide 'lt-evil)
