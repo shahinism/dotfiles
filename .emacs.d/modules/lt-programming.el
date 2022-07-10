@@ -7,6 +7,7 @@
 (lt/install-package 'dash-docs)
 (lt/install-package 'consult-dash)
 (lt/install-package 'consult-eglot)
+(lt/install-package 'consult-flycheck)
 
 ;; Show the name of the current function definition in the modeline
 (require 'which-func)

@@ -73,6 +73,7 @@
   "pr" 'project-query-replace-regexp
   "pc" 'project-compile
   "pp" 'project-switch-project
-  "d." 'consult-dash)
+  "d." 'consult-dash
+  "e"  'consult-flycheck)
 
 (provide 'lt-evil)
