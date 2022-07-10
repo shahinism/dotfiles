@@ -30,18 +30,12 @@
          (lt/shell-sudo-add)))
      ))
 
-(defun spawn-shell (name)
-  "Invoke a new shell named as NAME."
-  (interactive "MName of the shell: ")
-  (pop-to-buffer (get-buffer-create (generate-new-buffer-name name)))
-  (eshell (current-buffer)))
-
 (defun lt/eshell-pop-show (name)
   "Create a pop up window with eshell named NAME."
-  (let* ((window (select-window (split-window
-                                 (frame-root-window)
-                                 '45
-                                 'below)))
+  (let* ((window (split-window
+                  (frame-root-window)
+                  '45
+                  'below))
          (buffer (get-buffer name)))
 
     (select-window window)
@@ -63,15 +57,10 @@
   "Toggle eshell pop up window."
   (interactive)
   (let ((name "shell-buffer"))
-    name
     (if (get-buffer-window name)
         (lt/eshell-pop-hide name)
       (lt/eshell-pop-show name))
     ))
-
-(lt/eshell-pop-show "shahin")
-(lt/eshell-pop-hide "shahin")
-(lt/eshell-pop-toggle)
 
 ;; Configuration
 (add-hook 'eshell-mode-hook
