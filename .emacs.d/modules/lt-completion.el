@@ -4,6 +4,7 @@
 (lt/install-package 'consult)
 (lt/install-package 'corfu-doc)
 (lt/install-package 'corfu)
+(lt/install-package 'kind-icon)  ;; icons for corfu
 (lt/install-package 'embark)
 (lt/install-package 'embark-consult)
 (lt/install-package 'marginalia)
@@ -81,9 +82,12 @@
 ;; a pure `completion-at-point-functions`.
 (advice-add 'pcomplete-completions-at-point :around #'cape-wrap-purify)
 (add-hook 'eshell-mode-hook
-	  (lambda (setq-local corfu-quit-at-boundary t
-			      corfu-quit-no-match t
-			      corfu-auto nil)
-	    (corfu-mode)))
+          (lambda ()
+            (setq-local corfu-auto nil)
+            (corfu-mode)))
+;; Kind Icon
+(require 'kind-icon)
+(setq kind-icon-default-face 'corfu-default)
+(add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter)
 
 (provide 'lt-completion)
