@@ -72,6 +72,7 @@
   "pk" 'project-kill-buffers
   "pr" 'project-query-replace-regexp
   "pc" 'project-compile
-  "pp" 'project-switch-project)
+  "pp" 'project-switch-project
+  "d." 'consult-dash)
 
 (provide 'lt-evil)

@@ -6,6 +6,11 @@
 (lt/install-package 'numpydoc)
 (lt/install-package 'pyvenv)
 
+;; Functions
+(defun python-doc ()
+  (interactive)
+  (setq-local dash-docs-docsets '("Python_3")))
+
 ;; Hooks
 (add-hook 'python-mode-hook #'anaconda-mode)
 (add-hook 'python-mode-hook #'blacken-mode)
@@ -15,6 +20,9 @@
 
 (when (fboundp #'eglot-ensure)
   (add-hook 'python-mode-hook #'eglot-ensure))
+
+(when (fboundp #'dash-docs-search)
+  (add-hook 'python-mode-hook #'python-doc))
 
 ;;; Ananconda
 ;;  Move anaconda python installation directory to user var/
