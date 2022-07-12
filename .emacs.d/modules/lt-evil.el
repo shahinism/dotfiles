@@ -76,6 +76,10 @@
   "d." 'consult-dash
   "e"  'consult-flycheck
   "is" 'consult-yasnippet
-  "tt" 'lt/eshell-pop-toggle)
+  "tt" 'lt/eshell-pop-toggle
+  "ld" 'eglot-find-declaration
+  "li" 'eglot-find-implementation
+  "lt" 'eglot-find-typeDefinition
+  "lr" 'eglot-rename)
 
 (provide 'lt-evil)

@@ -67,4 +67,8 @@
           (lambda ()
             (require 'eshell-z)))
 
+;; Shell Mode
+(when (fboundp #'eglot-ensure)
+  (add-hook 'sh-mode-hook #'eglot-ensure))
+
 (provide 'lt-shell)
