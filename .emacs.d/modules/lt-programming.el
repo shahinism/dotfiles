@@ -11,6 +11,7 @@
 (lt/install-package 'consult-eglot)
 (lt/install-package 'consult-flycheck)
 (lt/install-package 'consult-yasnippet)
+(lt/install-package 'markdown-mode)
 
 ;; Show the name of the current function definition in the modeline
 (require 'which-func)
