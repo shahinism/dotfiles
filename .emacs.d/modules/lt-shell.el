@@ -67,6 +67,20 @@
           (lambda ()
             (require 'eshell-z)))
 
+;; Bindings
+(defun is-evil-p ()
+  "Check wheter we are in evil state or not."
+  (or (eq evil-state nil) (eq evil-state 'emacs)))
+
+(add-hook 'eshell-mode-hook
+          (lambda ()
+            (if (is-evil-p)
+                (local-set-key (kbd "C-r") 'consult-history)
+              (progn
+                (evil-local-set-key 'insert (kbd "C-r") 'consult-history)
+                (evil-local-set-key 'normal (kbd "C-r") 'consult-history))
+              )))
+
 ;; Shell Mode
 (when (fboundp #'eglot-ensure)
   (add-hook 'sh-mode-hook #'eglot-ensure))
