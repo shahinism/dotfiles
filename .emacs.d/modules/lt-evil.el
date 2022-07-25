@@ -39,6 +39,9 @@
 
 (evil-collection-init)
 
+;; Evil nerd commenter
+(evilnc-default-hotkeys)
+
 ;; General
 (require 'general)
 
@@ -59,12 +62,6 @@
   "wda" 'ace-delete-window
   "wa" 'ace-window
   "ws" 'ace-swap-window
-  "ci" 'evilnc-comment-or-uncomment-lines
-  "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
-  "cc" 'evilnc-copy-and-comment-lines
-  "cp" 'evilnc-comment-or-uncomment-paragraphs
-  "cr" 'evilnc-comment-or-uncomment-region
-  "c." 'evilnc-copy-and-comment-operator
   "pa" 'consult-ag
   "pb" 'project-switch-to-buffer
   "pd" 'project-find-dir

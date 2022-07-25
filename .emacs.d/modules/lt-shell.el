@@ -1,6 +1,9 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
 (lt/install-package 'eshell-z)
+(lt/install-package 'esh-help)
+(lt/install-package 'eshell-did-you-mean)
+(lt/install-package 'eshell-syntax-highlighting)
 
 ;; Functions
 
@@ -66,6 +69,11 @@
 (add-hook 'eshell-mode-hook
           (lambda ()
             (require 'eshell-z)))
+
+(setup-esh-help-eldoc)
+(eshell-did-you-mean-setup)
+
+(add-hook 'eshell-mode-hook 'eshell-syntax-highlighting-mode)
 
 ;; Bindings
 (defun is-evil-p ()
