@@ -6,6 +6,7 @@
 (lt/install-package 'undo-tree)
 (lt/install-package 'general)
 (lt/install-package 'ace-window)
+(lt/install-package 'crux)
 
 ;; Set some variables that must be configured before loading the package
 (customize-set-variable 'evil-want-integration t)
@@ -77,6 +78,7 @@
   "ld" 'eglot-find-declaration
   "li" 'eglot-find-implementation
   "lt" 'eglot-find-typeDefinition
-  "lr" 'eglot-rename)
+  "lr" 'eglot-rename
+  "br" 'crux-rename-file-and-buffer)
 
 (provide 'lt-evil)
