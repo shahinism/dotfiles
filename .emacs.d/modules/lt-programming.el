@@ -27,7 +27,11 @@
 
 ;; Citre
 (require 'citre)
-(require 'citre-config)
+;; NOTE enabling citre-config, will automatically enable citre-mode
+;; where the conditions are met (tag file available), and consequently
+;; injects tags as part of autocompletion stack (for both vertico and
+;; company) which really sucks!
+;; (require 'citre-config)
 
 ;; TreeSitter
 (require 'tree-sitter)
@@ -38,6 +42,9 @@
 ;;; Eglot
 ;;  shutdown server when last managed buffer is killed
 (customize-set-variable 'eglot-autoshutdown t)
+
+;; Disable flymake, I tend to use flycheck instead
+(customize-set-variable 'eglot-stay-out-of '(flymake))
 
 ;;; Flycheck
 (require 'flycheck)
