@@ -15,6 +15,7 @@
 (lt/install-package 'tree-sitter)
 (lt/install-package 'tree-sitter-langs)
 (lt/install-package 'dumb-jump)
+(lt/install-package 'citre)
 
 ;; Show the name of the current function definition in the modeline
 (require 'which-func)
@@ -23,6 +24,10 @@
 ;; font-lock annotations like TODO in the source code
 (require 'hl-todo)
 (global-hl-todo-mode 1)
+
+;; Citre
+(require 'citre)
+(require 'citre-config)
 
 ;; TreeSitter
 (require 'tree-sitter)
@@ -68,7 +73,11 @@
   "jj" 'dumb-jump-go
   "jo" 'dumb-jump-go-other-window
   "jl" 'dumb-jump-quick-look
-  "jb" 'dumb-jump-back)
+  "jb" 'dumb-jump-back
+  "cj" 'citre-jump
+  "cb" 'citre-jump-back
+  "cp" 'citre-peek
+  "cu" 'citre-update-this-tags-file)
 
 
 (provide 'lt-programming)

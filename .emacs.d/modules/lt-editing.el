@@ -1,6 +1,12 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
 (lt/install-package 'editorconfig)
+(lt/install-package 'dirvish)
+
+;; DirVish
+(dirvish-override-dired-mode)
+
+(setq dirvish-attributes '(all-the-icons file-size collapse subtree-state vc-state git-msg))
 
 ;; parentheses
 (electric-pair-mode 1)

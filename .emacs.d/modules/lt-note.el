@@ -70,6 +70,7 @@
 ;; Keybindings
 (general-evil-define-key 'normal 'org-mode-map
   :prefix "SPC"
+  "ns" 'org-download-screenshot
   "ni" 'org-roam-node-insert
   "no" 'org-id-get-create
   "nt" 'org-roam-tag-add
@@ -78,7 +79,6 @@
 
 (general-evil-define-key 'normal 'global
   :prefix "SPC"
-  "ns" 'org-download-screenshot
   "nf" 'org-roam-node-find
   "nr" 'org-roam-node-random
   "nd" 'deft)
