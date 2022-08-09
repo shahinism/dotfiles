@@ -38,4 +38,23 @@
 (yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
 
+;; Keybindings
+(general-evil-define-key 'normal 'global
+  :prefix "SPC"
+  "pa" 'consult-ag
+  "pb" 'project-switch-to-buffer
+  "pd" 'project-find-dir
+  "pf" 'project-find-file
+  "pk" 'project-kill-buffers
+  "pr" 'project-query-replace-regexp
+  "pc" 'project-compile
+  "pp" 'project-switch-project
+  "d." 'consult-dash
+  "e"  'consult-flycheck
+  "is" 'consult-yasnippet
+  "ld" 'eglot-find-declaration
+  "li" 'eglot-find-implementation
+  "lt" 'eglot-find-typeDefinition
+  "lr" 'eglot-rename)
+
 (provide 'lt-programming)

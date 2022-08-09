@@ -63,22 +63,7 @@
   "wda" 'ace-delete-window
   "wa" 'ace-window
   "ws" 'ace-swap-window
-  "pa" 'consult-ag
-  "pb" 'project-switch-to-buffer
-  "pd" 'project-find-dir
-  "pf" 'project-find-file
-  "pk" 'project-kill-buffers
-  "pr" 'project-query-replace-regexp
-  "pc" 'project-compile
-  "pp" 'project-switch-project
-  "d." 'consult-dash
-  "e"  'consult-flycheck
-  "is" 'consult-yasnippet
   "tt" 'lt/eshell-pop-toggle
-  "ld" 'eglot-find-declaration
-  "li" 'eglot-find-implementation
-  "lt" 'eglot-find-typeDefinition
-  "lr" 'eglot-rename
   "br" 'crux-rename-file-and-buffer)
 
 (provide 'lt-evil)
