@@ -12,6 +12,9 @@
 (lt/install-package 'consult-flycheck)
 (lt/install-package 'consult-yasnippet)
 (lt/install-package 'markdown-mode)
+(lt/install-package 'tree-sitter)
+(lt/install-package 'tree-sitter-langs)
+(lt/install-package 'dumb-jump)
 
 ;; Show the name of the current function definition in the modeline
 (require 'which-func)
@@ -20,6 +23,12 @@
 ;; font-lock annotations like TODO in the source code
 (require 'hl-todo)
 (global-hl-todo-mode 1)
+
+;; TreeSitter
+(require 'tree-sitter)
+(require 'tree-sitter-langs)
+
+(global-tree-sitter-mode)
 
 ;;; Eglot
 ;;  shutdown server when last managed buffer is killed
@@ -55,6 +64,11 @@
   "ld" 'eglot-find-declaration
   "li" 'eglot-find-implementation
   "lt" 'eglot-find-typeDefinition
-  "lr" 'eglot-rename)
+  "lr" 'eglot-rename
+  "jj" 'dumb-jump-go
+  "jo" 'dumb-jump-go-other-window
+  "jl" 'dumb-jump-quick-look
+  "jb" 'dumb-jump-back)
+
 
 (provide 'lt-programming)
