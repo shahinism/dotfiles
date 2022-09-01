@@ -59,6 +59,10 @@
 (yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
 
+;; Linum
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode)
+
 ;; Keybindings
 (general-evil-define-key 'normal 'global
   :prefix "SPC"
