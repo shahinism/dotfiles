@@ -36,5 +36,11 @@ function ssm_upload_key {
     aws ssm start-session --target ${@:2} --parameters="$PARAM" --document-name AWS-StartInteractiveCommand
 }
 
+function download_aws_lambda {
+    mkdir -p $1 && cd $1
+    aws lambda get-function --function-name $1 | jq '.Code.Location' | xargs curl | bsdtar -xvf-
+    cd -
+}
+
 # opam configuration
 [[ ! -r /home/shahin/.opam/opam-init/init.zsh ]] || source /home/shahin/.opam/opam-init/init.zsh > /dev/null 2> /dev/null
