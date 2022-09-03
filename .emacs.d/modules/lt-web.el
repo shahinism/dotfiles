@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
-(lt/install-package 'web-beautify)
+(use-package web-beautify)
 
 (provide 'lt-web)

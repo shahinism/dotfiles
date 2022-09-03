@@ -1,12 +1,7 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
-(lt/install-package 'eshell-z)
-(lt/install-package 'esh-help)
-(lt/install-package 'eshell-did-you-mean)
-(lt/install-package 'eshell-syntax-highlighting)
 
 ;; Functions
-
 (defun lt/shell-has-sudo-p ()
   "Check if the current command on eshell prompt, starts with sudo."
   (let ((command-string (buffer-substring-no-properties
@@ -66,14 +61,27 @@
     ))
 
 ;; Configuration
-(add-hook 'eshell-mode-hook
-          (lambda ()
-            (require 'eshell-z)))
+(use-package eshell-z
+  :config
+  (add-hook 'eshell-mode-hook
+            (lambda ()
+              (require 'eshell-z)))
+)
 
-(setup-esh-help-eldoc)
-(eshell-did-you-mean-setup)
+(use-package esh-help
+  :config
+  (setup-esh-help-eldoc)
+  )
 
-(add-hook 'eshell-mode-hook 'eshell-syntax-highlighting-mode)
+(use-package eshell-did-you-mean
+  :config
+  (eshell-did-you-mean-setup)
+)
+
+(use-package eshell-syntax-highlighting
+  :config
+  (add-hook 'eshell-mode-hook 'eshell-syntax-highlighting-mode)
+  )
 
 ;; Bindings
 (defun is-evil-p ()

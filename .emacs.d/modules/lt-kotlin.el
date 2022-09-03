@@ -1,8 +1,9 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
-(lt/install-package 'kotlin-mode)
+(use-package kotlin-mode
+  :config
 
-(when (fboundp #'eglot-ensure)
-  (add-hook 'kotlin-mode-hook #'eglot-ensure))
-
+  (when (fboundp #'eglot-ensure)
+    (add-hook 'kotlin-mode-hook #'eglot-ensure))
+)
 (provide 'lt-kotlin)

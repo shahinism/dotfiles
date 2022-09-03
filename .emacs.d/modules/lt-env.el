@@ -1,7 +1,7 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
-(lt/install-package 'direnv)
-
-(direnv-mode)
+(use-package direnv
+  :config
+  (direnv-mode))
 
 (provide 'lt-env)

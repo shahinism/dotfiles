@@ -6,9 +6,16 @@
             (message "Emacs loaded in %s."
                      (emacs-init-time))))
 
-(defmacro lt/install-package (package)
-  "Install package if it's not installed"
-  `(unless (package-installed-p ,package) (package-install ,package)))
+;; Initialize the package
+(package-initialize)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(eval-and-compile
+  (setq use-package-always-ensure t
+        use-package-expand-minimally t))
 
 ;; Add modules folder to the load path
 (add-to-list 'load-path (expand-file-name "modules/" user-emacs-directory))
@@ -36,8 +43,6 @@
   (require 'lt-linux))
 
 (require 'lt-default)
-(require 'lt-use-package)
-;;(require 'lt-god)
 (require 'lt-evil)
 (require 'lt-completion)
 (require 'lt-editing)
@@ -45,7 +50,6 @@
 (require 'lt-python)
 (require 'lt-ui)
 (require 'lt-env)
-(require 'lt-navigation)
 (require 'lt-typescript)
 (require 'lt-kotlin)
 (require 'lt-shell)
