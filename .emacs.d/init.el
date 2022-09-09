@@ -43,7 +43,8 @@
   (require 'lt-linux))
 
 (require 'lt-default)
-(require 'lt-evil)
+;; (require 'lt-evil)
+(require 'lt-meow)
 (require 'lt-completion)
 (require 'lt-editing)
 (require 'lt-programming)
