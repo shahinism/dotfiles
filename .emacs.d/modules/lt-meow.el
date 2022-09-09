@@ -1,5 +1,110 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
+(use-package consult-ag)
+(use-package ace-window)
+(use-package windmove)
+(use-package projectile
+  :config
+  (projectile-mode +1))
+
+(use-package hydra
+  :config
+  (defhydra hydra-window ()
+    "
+Movement^^        ^Split^         ^Switch^		^Resize^
+----------------------------------------------------------------
+_h_ ←       	_/_ vertical    _b_uffer	_q_ X←
+_j_ ↓        	_-_ horizontal	_f_ind files	_w_ X↓
+_k_ ↑        	_z_ undo      	_a_ce 1		_e_ X↑
+_l_ →        	_Z_ reset      	_s_wap		_r_ X→
+_F_ollow		_D_lt Other   	_S_ave		max_i_mize
+_SPC_ cancel	_o_nly this   	_d_elete	
+"
+    ("h" windmove-left )
+    ("j" windmove-down )
+    ("k" windmove-up )
+    ("l" windmove-right )
+    ("q" hydra-move-splitter-left)
+    ("w" hydra-move-splitter-down)
+    ("e" hydra-move-splitter-up)
+    ("r" hydra-move-splitter-right)
+    ("b" helm-mini)
+    ("f" helm-find-files)
+    ("F" follow-mode)
+    ("a" (lambda ()
+           (interactive)
+           (ace-window 1)
+           (add-hook 'ace-window-end-once-hook
+                     'hydra-window/body))
+     )
+    ("/" (lambda ()
+           (interactive)
+           (split-window-right)
+           (windmove-right))
+     )
+    ("-" (lambda ()
+           (interactive)
+           (split-window-below)
+           (windmove-down))
+     )
+    ("s" (lambda ()
+           (interactive)
+           (ace-window 4)
+           (add-hook 'ace-window-end-once-hook
+                     'hydra-window/body)))
+    ("S" save-buffer)
+    ("d" delete-window)
+    ("D" (lambda ()
+           (interactive)
+           (ace-window 16)
+           (add-hook 'ace-window-end-once-hook
+                     'hydra-window/body))
+     )
+    ("o" delete-other-windows)
+    ("i" ace-maximize-window)
+    ("z" (progn
+           (winner-undo)
+           (setq this-command 'winner-undo))
+     )
+    ("Z" winner-redo)
+    ("SPC" nil)
+    )
+
+  (defhydra hydra-projectile (:color teal
+                                     :hint nil)
+    "
+     PROJECTILE: %(projectile-project-root)
+
+     Find File            Search/Tags          Buffers                Cache
+------------------------------------------------------------------------------------------
+_s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache clear
+ _ff_: file dwim       _g_: update gtags      _b_: switch to buffer  _x_: remove known project
+ _fd_: file curr dir   _o_: multi-occur     _s-k_: Kill all buffers  _X_: cleanup non-existing
+  _r_: recent file                                               ^^^^_z_: cache current
+  _d_: dir
+
+"
+    ("a"   counsel-ag)
+    ("b"   counsel-projectile-switch-to-buffer)
+    ("c"   projectile-invalidate-cache)
+    ("d"   counsel-projectile-find-dir)
+    ("s-f" counsel-projectile-find-file)
+    ("ff"  counsel-projectile-find-file-dwim)
+    ("fd"  projectile-find-file-in-directory)
+    ("g"   ggtags-update-tags)
+    ("i"   projectile-ibuffer)
+    ("K"   projectile-kill-buffers)
+    ("s-k" projectile-kill-buffers)
+    ("m"   projectile-multi-occur)
+    ("o"   projectile-multi-occur)
+    ("p"   counsel-projectile-switch-project)
+    ("r"   projectile-recentf)
+    ("x"   projectile-remove-known-project)
+    ("X"   projectile-cleanup-known-projects)
+    ("z"   projectile-cache-current-file)
+    ("q"   nil "cancel" :color blue))
+  )
+
 (defun meow-setup ()
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty
         meow-use-cursor-position-hack t
@@ -13,6 +118,8 @@
    '("j" . "H-j")
    '("k" . "H-k")
 
+   '("p" . hydra-projectile/body)
+   '("w" . hydra-window/body)
    '("v" . magit-status)
    ;; Use SPC (0-9) for digit arguments.
    '("1" . meow-digit-argument)
@@ -28,6 +135,7 @@
    '("/" . meow-keypad-describe-key)
    '("?" . meow-cheatsheet))
   (meow-normal-define-key
+   '("=" . indent-region)
    '("0" . meow-expand-0)
    '("9" . meow-expand-9)
    '("8" . meow-expand-8)
