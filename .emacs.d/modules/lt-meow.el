@@ -13,10 +13,10 @@
     "
 Movement^^        ^Split^         ^Switch^		^Resize^
 ----------------------------------------------------------------
-_h_ ←       	_/_ vertical    _b_uffer	_q_ X←
-_j_ ↓        	_-_ horizontal	_f_ind files	_w_ X↓
-_k_ ↑        	_z_ undo      	_a_ce 1		_e_ X↑
-_l_ →        	_Z_ reset      	_s_wap		_r_ X→
+_h_ ←       	_/_ vertical            	_h_ X←
+_j_ ↓        	_-_ horizontal	        	_j_ X↓
+_k_ ↑        	_z_ undo      	_a_ce 1		_k_ X↑
+_l_ →        	_Z_ reset      	_s_wap		_l_ X→
 _F_ollow		_D_lt Other   	_S_ave		max_i_mize
 _SPC_ cancel	_o_nly this   	_d_elete	
 "
@@ -24,10 +24,10 @@ _SPC_ cancel	_o_nly this   	_d_elete
     ("j" windmove-down )
     ("k" windmove-up )
     ("l" windmove-right )
-    ("q" hydra-move-splitter-left)
-    ("w" hydra-move-splitter-down)
-    ("e" hydra-move-splitter-up)
-    ("r" hydra-move-splitter-right)
+    ("H" hydra-move-splitter-left)
+    ("J" hydra-move-splitter-down)
+    ("K" hydra-move-splitter-up)
+    ("L" hydra-move-splitter-right)
     ("b" helm-mini)
     ("f" helm-find-files)
     ("F" follow-mode)
@@ -68,18 +68,19 @@ _SPC_ cancel	_o_nly this   	_d_elete
      )
     ("Z" winner-redo)
     ("SPC" nil)
+    ("q" nil)
     )
 
   (defhydra hydra-projectile (:color teal
-                                     :hint nil)
+                              :hint nil)
     "
      PROJECTILE: %(projectile-project-root)
 
      Find File            Search/Tags          Buffers                Cache
 ------------------------------------------------------------------------------------------
-_s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache clear
+ _fF_: file            _a_: ag                _i_: Ibuffer           _c_: cache clear
  _ff_: file dwim       _g_: update gtags      _b_: switch to buffer  _x_: remove known project
- _fd_: file curr dir   _o_: multi-occur     _s-k_: Kill all buffers  _X_: cleanup non-existing
+ _fd_: file curr dir   _o_: multi-occur       _k_: Kill all buffers  _X_: cleanup non-existing
   _r_: recent file                                               ^^^^_z_: cache current
   _d_: dir
 
@@ -88,13 +89,12 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
     ("b"   counsel-projectile-switch-to-buffer)
     ("c"   projectile-invalidate-cache)
     ("d"   counsel-projectile-find-dir)
-    ("s-f" counsel-projectile-find-file)
+    ("fF" counsel-projectile-find-file)
     ("ff"  counsel-projectile-find-file-dwim)
     ("fd"  projectile-find-file-in-directory)
     ("g"   ggtags-update-tags)
     ("i"   projectile-ibuffer)
-    ("K"   projectile-kill-buffers)
-    ("s-k" projectile-kill-buffers)
+    ("k"   projectile-kill-buffers)
     ("m"   projectile-multi-occur)
     ("o"   projectile-multi-occur)
     ("p"   counsel-projectile-switch-project)

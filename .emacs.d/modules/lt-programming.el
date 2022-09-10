@@ -105,4 +105,8 @@
     "cu" 'citre-update-this-tags-file)
   )
 
+;; Fix trailing spaces but only in modified lines
+(use-package ws-butler
+  :hook (prog-mode . ws-butler-mode))
+
 (provide 'lt-programming)

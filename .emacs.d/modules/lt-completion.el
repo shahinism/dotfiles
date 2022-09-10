@@ -17,6 +17,11 @@
   :config
   (ivy-prescient-mode))
 
+(use-package helpful
+  :init
+  (setq counsel-describe-function-function #'helpful-callable)
+  (setq counsel-describe-variable-function #'helpful-variable))
+
 (use-package company
   :ensure t
   :config
@@ -30,10 +35,10 @@
   :config
   (company-prescient-mode))
 
-(use-package company-box
-  :after company
-  :ensure t
-  :hook (company-mode . company-box-mode))
+;(use-package company-box
+;  :after company
+;  :ensure t
+;  :hook (company-mode . company-box-mode))
 
 (use-package counsel-projectile
   :ensure t)
@@ -47,6 +52,10 @@
   :config
   (require 'ivy-rich)
   (ivy-rich-mode 1))
+
+(use-package all-the-icons-ivy-rich
+  :after ivy-rich
+  :config (all-the-icons-ivy-rich-mode 1))
 
 (use-package marginalia
   :ensure t
@@ -70,5 +79,18 @@
                '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
                  nil
                  (window-parameters (mode-line-format . none)))))
+
+(setq-default abbrev-mode 1)
+
+(use-package yasnippet
+  :defer 2
+  :config
+  (yas-global-mode 1))
+
+(use-package yasnippet-snippets
+  :defer)
+
+(use-package ivy-yasnippet
+  :bind ("C-c y" . ivy-yasnippet))
 
 (provide 'lt-completion)
