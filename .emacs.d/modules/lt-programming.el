@@ -109,4 +109,6 @@
 (use-package ws-butler
   :hook (prog-mode . ws-butler-mode))
 
+(use-package yaml-mode)
+
 (provide 'lt-programming)
