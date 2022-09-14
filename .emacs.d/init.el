@@ -6,16 +6,26 @@
             (message "Emacs loaded in %s."
                      (emacs-init-time))))
 
-;; Initialize the package
-(package-initialize)
+;; Install straight.el
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+;; Install use-package
+(straight-use-package 'use-package)
 
-(eval-and-compile
-  (setq use-package-always-ensure t
-        use-package-expand-minimally t))
+;; Configure use-package to use straight.el by default
+(use-package straight
+             :custom (straight-use-package-by-default t))
 
 ;; Add modules folder to the load path
 (add-to-list 'load-path (expand-file-name "modules/" user-emacs-directory))
@@ -58,6 +68,7 @@
 (require 'lt-go)
 (require 'lt-note)
 (require 'lt-lsp)
+
 ;; Automatically added
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

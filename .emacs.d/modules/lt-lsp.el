@@ -3,7 +3,8 @@
 (use-package posframe)
 
 (use-package lsp-bridge
-  :load-path "~/.emacs.d/local/lsp-bridge"
+  :straight (lsp-bridge :type git :host github :repo "manateelazycat/lsp-bridge"
+                        :branch "master" :files ("*"))
   :bind
   (:map lsp-bridge-mode-map
         ("M-." . lsp-bridge-find-def)
@@ -15,6 +16,8 @@
         ("s-C-n" . lsp-bridge-jump-to-next-diagnostic)
         ("s-C-p" . lsp-bridge-jump-to-prev-diagnostic))
   :config
+  (require 'lsp-bridge)
+
   (setq lsp-bridge-auto-format-code-idle 5
         lsp-bridge-enable-auto-format-code t
         lsp-bridge-enable-log nil
