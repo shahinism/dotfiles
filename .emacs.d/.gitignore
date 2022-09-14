@@ -7,4 +7,5 @@ var/
 *~
 eshell/
 projectile*
-.cache/
+.cache
+straight

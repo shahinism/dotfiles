@@ -23,8 +23,8 @@
         lsp-bridge-enable-log nil
         lsp-bridge-enable-signature-help t
         lsp-bridge-python-lsp-server "jedi")
-
-  (add-hook 'prog-mode-hook #'lsp-bridge-mode)
   )
+
+(global-lsp-bridge-mode)
 
 (provide 'lt-lsp)

@@ -84,6 +84,7 @@
 
 (use-package highlight-indent-guides
   :config
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  (setq highlight-indent-guides-method 'character))
 
 (provide 'lt-programming)
