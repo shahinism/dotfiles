@@ -25,7 +25,7 @@
 (use-package company
   :ensure t
   :config
-  (add-hook 'prog-mode-hook 'global-company-mode)
+  ;; (add-hook 'prog-mode-hook 'global-company-mode)
   (setq company-idle-delay 0
         company-minimum-prefix-length 2))
 

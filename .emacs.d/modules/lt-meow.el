@@ -118,9 +118,12 @@ _SPC_ cancel	_o_nly this   	_d_elete
    '("j" . "H-j")
    '("k" . "H-k")
 
+   '("." . point-to-register)
+   '(">" . jump-to-register)
    '("p" . hydra-projectile/body)
    '("w" . hydra-window/body)
    '("v" . magit-status)
+   '("l" . hydra-lsp-bridge/body)
    ;; Use SPC (0-9) for digit arguments.
    '("1" . meow-digit-argument)
    '("2" . meow-digit-argument)
@@ -200,6 +203,7 @@ _SPC_ cancel	_o_nly this   	_d_elete
 
 (use-package meow
   :config
+  (setq meow-use-clipboard t)
   (meow-setup)
   (meow-global-mode 1))
 

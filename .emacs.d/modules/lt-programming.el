@@ -28,13 +28,13 @@
 
 ;;; Eglot
 ;;  shutdown server when last managed buffer is killed
-(use-package eglot
-  :init
-  (customize-set-variable 'eglot-autoshutdown t)
+;; (use-package eglot
+;;   :init
+;;   (customize-set-variable 'eglot-autoshutdown t)
 
-  ;; Disable flymake, I tend to use flycheck instead
-  (customize-set-variable 'eglot-stay-out-of '(flymake))
-)
+;;   ;; Disable flymake, I tend to use flycheck instead
+;;   (customize-set-variable 'eglot-stay-out-of '(flymake))
+;; )
 
 ;;; Flycheck
 (use-package flycheck
@@ -76,39 +76,14 @@
 (use-package consult-eglot
   :after consult eglot)
 
-;; Keybindings
-(when (fboundp #'general-evil-define-key)
-  (general-evil-define-key 'normal 'global
-    :prefix "SPC"
-    "pa" 'consult-ag
-    "pb" 'project-switch-to-buffer
-    "pd" 'project-find-dir
-    "pf" 'project-find-file
-    "pk" 'project-kill-buffers
-    "pr" 'project-query-replace-regexp
-    "pc" 'project-compile
-    "pp" 'project-switch-project
-    "d." 'consult-dash
-    "e"  'consult-flycheck
-    "is" 'consult-yasnippet
-    "ld" 'eglot-find-declaration
-    "li" 'eglot-find-implementation
-    "lt" 'eglot-find-typeDefinition
-    "lr" 'eglot-rename
-    "jj" 'dumb-jump-go
-    "jo" 'dumb-jump-go-other-window
-    "jl" 'dumb-jump-quick-look
-    "jb" 'dumb-jump-back
-    "cj" 'citre-jump
-    "cb" 'citre-jump-back
-    "cp" 'citre-peek
-    "cu" 'citre-update-this-tags-file)
-  )
-
 ;; Fix trailing spaces but only in modified lines
 (use-package ws-butler
   :hook (prog-mode . ws-butler-mode))
 
 (use-package yaml-mode)
+
+(use-package highlight-indent-guides
+  :config
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
 
 (provide 'lt-programming)
