@@ -25,6 +25,7 @@
         lsp-bridge-python-lsp-server "jedi")
   )
 
-(global-lsp-bridge-mode)
+(add-hook 'prog-mode-hook 'lsp-bridge-mode)
+;; (global-lsp-bridge-mode)
 
 (provide 'lt-lsp)
