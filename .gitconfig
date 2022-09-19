@@ -16,4 +16,14 @@
         path = .gitconfig.d/datachef
 
 [commit]
-    gpgSign = true
+        gpgSign = true
+[push]
+# Prevent the following status:
+# fatal: The current branch refactor/use-package has no upstream branch.
+# To push the current branch and set the remote as upstream, use
+
+#     git push --set-upstream origin refactor/use-package
+
+# To have this happen automatically for branches without a tracking
+# upstream, see 'push.autoSetupRemote' in 'git help config'.
+	autoSetupRemote = true
