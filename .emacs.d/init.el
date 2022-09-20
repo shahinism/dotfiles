@@ -1,5 +1,7 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
+(server-start)
+
 ;; Profile Emacs startup time
 (add-hook 'emacs-startup-hook
           (lambda ()
