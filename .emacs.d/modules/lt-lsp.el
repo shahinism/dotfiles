@@ -19,7 +19,7 @@
   (require 'lsp-bridge)
 
   (setq lsp-bridge-auto-format-code-idle 5
-        lsp-bridge-enable-auto-format-code t
+        lsp-bridge-enable-auto-format-code nil
         lsp-bridge-enable-log nil
         lsp-bridge-enable-signature-help t
         lsp-bridge-python-lsp-server "jedi")
