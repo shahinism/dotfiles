@@ -124,6 +124,7 @@ _SPC_ cancel	_o_nly this   	_d_elete
    '("w" . hydra-window/body)
    '("v" . magit-status)
    '("l" . hydra-lsp-bridge/body)
+   '("P" . org-roam-crm/body)
    ;; Use SPC (0-9) for digit arguments.
    '("1" . meow-digit-argument)
    '("2" . meow-digit-argument)

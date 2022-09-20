@@ -8,7 +8,10 @@
   ;; on Org > 9.2, more info:
   ;; https://emacs.stackexchange.com/a/46992
 
-  (setq org-use-speed-commands t
+  (setq org-startup-indented t
+        org-startup-folded t
+        org-todo-keywords '((sequence "[ ](t)" "[-](n)" "|" "[x]d" "[c](c@)"))
+        org-use-speed-commands t
         org-src-fontify-natively t
         org-src-tab-acts-natively t)
 
@@ -27,6 +30,9 @@
                              (setq-local electric-pair-inhibit-predicate
                                          `(lambda (c)
                                             (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c))))))
+  (with-eval-after-load 'org
+    (org-indent-mode t)
+    (require 'org-id))
   )
 
 (use-package org-appear
@@ -77,22 +83,34 @@
   (customize-set-variable 'org-download-image-dir "images")
   )
 
-;; Evil Keybindings
-(when (fboundp #'general-evil-define-key)
-  (general-evil-define-key 'normal 'org-mode-map
-    :prefix "SPC"
-    "ns" 'org-download-screenshot
-    "ni" 'org-roam-node-insert
-    "no" 'org-id-get-create
-    "nt" 'org-roam-tag-add
-    "na" 'org-roam-alias-add
-    "nl" 'org-roam-buffer-toggle)
+;; CRM
+(defvar lt/org-roam-crm-dir "~/notes/people"
+  "Directory where org-roam notes related to people are kept.")
 
-  (general-evil-define-key 'normal 'global
-    :prefix "SPC"
-    "nf" 'org-roam-node-find
-    "nr" 'org-roam-node-random
-    "nd" 'deft)
-  )
+(defun lt/with-org-roam-crm (func &rest args)
+  "Evaluate FUNC with ARGS org-roam set for working as CRM."
+  (let* ((org-roam-directory lt/org-roam-crm-dir)
+         (org-roam-db-location (concat org-roam-directory "/roam.db")))
+    (apply func args)))
+
+(defun lt/crm-db-sync ()
+  (interactive)
+  (lt/with-org-roam-crm #'org-roam-db-sync))
+
+(defun lt/org-roam-find-person ()
+  (interactive)
+  (lt/with-org-roam-crm #'org-roam-node-find))
+
+(defun lt/org-roam-insert-person ()
+  (interactive)
+  (lt/with-org-roam-crm #'org-roam-node-insert))
+
+(defhydra org-roam-crm (:color blue)
+  ""
+  ("f" lt/org-roam-find-person)
+  ("i" lt/org-roam-insert-person))
+
+;; Ensure database is synced on each load
+(lt/crm-db-sync)
 
 (provide 'lt-note)
