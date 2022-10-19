@@ -46,13 +46,14 @@ accepted by `set-default-attribute'."
   )
 
 ;; Theme
-(use-package doom-themes
-  :config
-  (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t)
+;; (use-package doom-themes
+ ;;  :config
+ ;;  (setq doom-themes-enable-bold t
+ ;;        doom-themes-enable-italic t)
 
-  (load-theme 'doom-zenburn t)
-  )
+ ;;  (load-theme 'doom-zenburn t)
+;;  )
+(load-theme 'modus-vivendi t)
 
 ;; which key help
 (use-package which-key
