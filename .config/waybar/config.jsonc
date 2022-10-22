@@ -25,11 +25,7 @@
         "custom/github",
         "custom/clipboard",
         "custom/zeit",
-        "cpu",
-        "memory",
-        "battery",
-        "temperature",
-
+        
         // connecting
         "network",
         "bluetooth",
@@ -38,13 +34,19 @@
         "custom/playerctl",
         "idle_inhibitor",
         "custom/dnd",
-        "pulseaudio",
-        "backlight",
 
         // system
         "custom/sunset",
         "custom/pacman",
 
+        // System Information
+        "pulseaudio",
+        "backlight",
+        "cpu",
+        "memory",
+        "temperature",
+        "battery",
+        
         "tray",
         "clock"
     ],
