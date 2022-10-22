@@ -22,7 +22,6 @@
     "modules-right": [
         // informational
         "sway/language",
-        "custom/github",
         "custom/clipboard",
         "custom/zeit",
         
