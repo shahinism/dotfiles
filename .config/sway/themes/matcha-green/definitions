@@ -28,11 +28,11 @@ set $color14 #6ae4b9
 set $color15 #ffffff
 
 #$color0
-set $background-color $color0
+set $background-color $color1
 #$color6
-set $text-color $color6
+set $text-color $color0
 #color1
-set $selection-color $color1
+set $selection-color $color4
 #color12
 set $accent-color $color12
 
