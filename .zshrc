@@ -19,11 +19,11 @@ antigen bundle fasd
 antigen bundle pip
 antigen bundle direnv
 antigen bundle command-not-found
-antigen bundle nojhan/liquidprompt
+# antigen bundle nojhan/liquidprompt
 antigen bundle blimmer/zsh-aws-vault@main
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
-
 # Tell Antigen that you're done.
 antigen apply
 
+eval "$(starship init zsh)"
