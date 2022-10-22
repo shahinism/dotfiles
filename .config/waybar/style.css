@@ -15,23 +15,23 @@
 
 @keyframes blink-warning {
     70% {
-        color: @wm_icon_bg;
+        color: #b6a0ff;
     }
 
     to {
-        color: @wm_icon_bg;
-        background-color: @warning_color;
+        color: #b6a0ff;
+        background-color: #ef8b50;
     }
 }
 
 @keyframes blink-critical {
     70% {
-      color: @wm_icon_bg;
+      color: #b6a0ff;
     }
 
     to {
-        color: @wm_icon_bg;
-        background-color: @error_color;
+        color: #b6a0ff;
+        background-color: #ff8059;
     }
 }
 
@@ -52,8 +52,8 @@
 
 /* The whole bar */
 window#waybar {
-    background: @theme_bg_color;
-    color: @wm_icon_bg;
+    background: #000;
+    color: #fff;
     font-size: 14px;
 }
 
@@ -91,12 +91,12 @@ window#waybar {
  * -------------------------------------------------------------------------- */
 
 #custom-scratchpad, #custom-menu, #workspaces button.focused, #clock  {
-    color: @theme_bg_color;
-    background-color: @theme_selected_bg_color;
+    color: #000;
+    background-color: #2fafff;
 }
 
 #custom-zeit.tracking {
-    background-color: @warning_color;
+    background-color: #d0bc00;
 }
 
 #battery {
@@ -106,11 +106,11 @@ window#waybar {
 }
 
 #battery.warning {
-    color: @warning_color;
+    color: #d0bc00;
 }
 
 #battery.critical {
-    color: @error_color;
+    color: #ff8059;
 }
 
 #battery.warning.discharging {
@@ -128,11 +128,11 @@ window#waybar {
 }
 
 #cpu.warning {
-    color: @warning_color;
+    color: #d0bc00;
 }
 
 #cpu.critical {
-    color: @error_color;
+    color: #ff8059;
 }
 
 #custom-menu {
@@ -147,29 +147,29 @@ window#waybar {
 }
 
 #memory.warning {
-    color: @warning_color;
+    color: #d0bc00;
 }
 
 #memory.critical {
-    color: @error_color;
+    color: #ff8059;
     animation-name: blink-critical;
     animation-duration: 2s;
 }
 
 #mode {
-    background: @background_color;
+    background: #000;
 }
 
 #network.disconnected {
-    color: @warning_color;
+    color: #d0bc00;
 }
 
 #pulseaudio.muted {
-    color: @warning_color;
+    color: #d0bc00;
 }
 
 #temperature.critical {
-    color: @error_color;
+    color: #ff8059;
 }
 
 #workspaces button {
@@ -178,27 +178,27 @@ window#waybar {
     padding-bottom: 2px;
     padding-left: 10px;
     padding-right: 10px;
-    color: @theme_selected_bg_color;
+    color: #2fafff;
 }
 
 #workspaces button.focused {
-    border-color: @theme_selected_bg_color;
+    border-color: #2fafff;
 }
 
 #workspaces button.urgent {
-    border-color: @error_color;
-    color: @error_color;
+    border-color: #ff8059;
+    color: #ff8059;
 }
 
 #custom-pacman {
-    color: @warning_color;
+    color: #d0bc00;
 }
 
 #bluetooth.disabled {
-    color: @warning_color;
+    color: #d0bc00;
 }
 
 #custom-wf-recorder {
-    color: @error_color;
+    color: #ff8059;
     padding-right: 10px;
 }

@@ -192,7 +192,7 @@
             "one": "类",
             "many": "缾"
         },
-        "exec": "/bin/sh /usr/share/sway/scripts/scratchpad.sh",
+        "exec": "/bin/sh /home/shahin/.config/sway/scripts/scratchpad.sh",
         "on-click": "swaymsg 'scratchpad show'",
         "signal": 7
     },
@@ -206,9 +206,9 @@
             "on": "",
             "off": ""
         },
-        "exec": "fallback_latitude=50.1 fallback_longitude=8.7 latitude= longitude= /usr/share/sway/scripts/sunset.sh",
-        "on-click": "/usr/share/sway/scripts/sunset.sh toggle; pkill -RTMIN+6 waybar",
-        "exec-if": "/usr/share/sway/scripts/sunset.sh check",
+        "exec": "fallback_latitude=50.1 fallback_longitude=8.7 latitude= longitude= /home/shahin/.config/sway/scripts/sunset.sh",
+        "on-click": "/home/shahin/.config/sway/scripts/sunset.sh toggle; pkill -RTMIN+6 waybar",
+        "exec-if": "/home/shahin/.config/sway/scripts/sunset.sh check",
         "signal": 6
     },
 
@@ -269,7 +269,7 @@
         "tooltip": true,
         "interval": 3600,
         // accepts a location as an argument (in quotes)
-        "exec": "/usr/share/sway/scripts/weather.py",
+        "exec": "/home/shahin/.config/sway/scripts/weather.py",
         "return-type": "json",
         "format-icons": {
             "Unknown": "",
@@ -302,8 +302,8 @@
             "tracking": "華",
             "stopped": ""
         },
-        "exec": "/bin/sh /usr/share/sway/scripts/zeit.sh status",
-        "on-click": "/bin/sh /usr/share/sway/scripts/zeit.sh click; pkill -RTMIN+10 waybar",
+        "exec": "/bin/sh /home/shahin/.config/sway/scripts/zeit.sh status",
+        "on-click": "/bin/sh /home/shahin/.config/sway/scripts/zeit.sh click; pkill -RTMIN+10 waybar",
         "exec-if": "[ -x \"$(command -v zeit)\" ]",
         "signal": 10
     },
