@@ -1,0 +1,24 @@
+# Config for sway
+# Read `man 5 sway` for a complete reference.
+
+# styles - set the folder for your theme definition file
+set $config $HOME/.config/sway
+set $theme $config/themes/matcha-green
+
+# theme variables
+include $theme/definitions
+
+# user variables
+include $config/definitions.d/*.conf
+
+include $config/inputs/*
+include $config/outputs/*
+
+# enable modes
+include $config/modes/*
+
+# only enable this if every app you use is compatible with wayland
+# xwayland disable
+
+# include additional configs e.g. to autostart applications
+include $config/config.d/*
