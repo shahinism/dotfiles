@@ -232,7 +232,7 @@ device_menu() {
     options="$connected\n$paired\n$trusted\n$divider\n$goback\nExit"
 
     # Open rofi menu, read chosen option
-    chosen="$(echo -e "$options" | rofi -dmenu -theme-str "$rofi_theme" -p "$device_name")"
+    chosen="$(echo -e "$options" | rofi -dmenu -theme "$rofi_theme" -p "$device_name")"
 
     # Match chosen option to command
     case $chosen in
@@ -277,7 +277,7 @@ show_menu() {
     fi
 
     # Open rofi menu, read chosen option
-    chosen="$(echo -e "$options" | rofi -dmenu -theme-str "$rofi_theme" -p "Bluetooth")"
+    chosen="$(echo -e "$options" | rofi -dmenu -theme "$rofi_theme" -p "Bluetooth")"
 
     # Match chosen option to command
     case $chosen in
