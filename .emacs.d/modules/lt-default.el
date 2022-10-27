@@ -50,4 +50,7 @@
 ;; Remember the position in the buffer
 (save-place-mode 1)
 
+;; Helper commands
+(use-package crux)
+
 (provide 'lt-default)
