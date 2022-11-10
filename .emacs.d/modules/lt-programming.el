@@ -42,14 +42,8 @@
   (global-flycheck-mode)
   )
 
-;; Consult dash
-;; https://codeberg.org/ravi/consult-dash
-(use-package consult-dash
-  :after consult dash
-  :config
-  (consult-customize consult-dash :initial (thing-at-point 'symbol))
-  )
- 
+(use-package devdocs)
+
 ;; Yasnippet
 (use-package yasnippet
   :config
@@ -72,7 +66,6 @@
 (use-package dumb-jump)
 (use-package magit)
 (use-package terraform-mode)
-(use-package dash-docs)
 (use-package consult-eglot
   :after consult eglot)
 

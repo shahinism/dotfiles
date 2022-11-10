@@ -10,7 +10,7 @@
 (use-package hydra
   :config
   (defhydra hydra-lookup ()
-    ("." consult-dash))
+    ("." devdocs-lookup))
 
   (defhydra hydra-window ()
     "

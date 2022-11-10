@@ -3,11 +3,11 @@
 ;; Functions
 (defun python-doc ()
   (interactive)
-  (setq-local dash-docs-docsets '("Python_3")))
+  (setq-local devdocs-current-docs '("python-3.11")))
 
 (add-hook 'python-mode-hook #'eldoc-mode)
 
-(when (fboundp #'dash-docs-search)
+(when (fboundp #'devdocs-lookup)
   (add-hook 'python-mode-hook #'python-doc))
 
 (use-package anaconda-mode

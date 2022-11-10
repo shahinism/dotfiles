@@ -5,16 +5,13 @@
 ;; Functions
 (defun typescript-doc ()
   (interactive)
-  (setq-local dash-docs-docsets '("TypeScript")))
+  (setq-local devdocs-current-docs '("typescript")))
 
 (use-package typescript-mode
   :config
 
   ;; Hooks
-  (when (fboundp #'eglot-ensure)
-    (add-hook 'typescript-mode-hook #'eglot-ensure))
-
-  (when (fboundp #'dash-docs-search)
+  (when (fboundp #'devdocs-lookup)
     (add-hook 'typescript-mode-hook #'typescript-doc))
   )
 

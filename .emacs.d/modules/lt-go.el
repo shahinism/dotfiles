@@ -6,9 +6,9 @@
   ;; Functions
   (defun go-doc ()
     (interactive)
-    (setq-local dash-docs-docsets '("Go")))
+    (setq-local devdocs-current-docs '("go")))
 
-  (when (fboundp #'dash-docs-search)
+  (when (fboundp #'devdocs-lookup)
     (add-hook 'go-mode-hook #'go-doc))
   )
 
