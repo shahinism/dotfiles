@@ -6,8 +6,6 @@
   (setq-local dash-docs-docsets '("Python_3")))
 
 (add-hook 'python-mode-hook #'eldoc-mode)
-(when (fboundp #'eglot-ensure)
-  (add-hook 'python-mode-hook #'eglot-ensure))
 
 (when (fboundp #'dash-docs-search)
   (add-hook 'python-mode-hook #'python-doc))

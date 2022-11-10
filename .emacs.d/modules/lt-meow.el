@@ -9,6 +9,9 @@
 
 (use-package hydra
   :config
+  (defhydra hydra-lookup ()
+    ("." consult-dash))
+
   (defhydra hydra-window ()
     "
 Movement^^        ^Split^         ^Switch^		^Resize^
@@ -53,8 +56,8 @@ _SPC_ cancel	_o_nly this   	_d_elete
            (add-hook 'ace-window-end-once-hook
                      'hydra-window/body)))
     ("S" save-buffer)
-    ("d" delete-window)
-    ("D" (lambda ()
+    ("D" delete-window)
+    ("d" (lambda ()
            (interactive)
            (ace-window 16)
            (add-hook 'ace-window-end-once-hook
@@ -124,6 +127,7 @@ _SPC_ cancel	_o_nly this   	_d_elete
    '("w" . hydra-window/body)
    '("v" . magit-status)
    '("l" . hydra-lsp-bridge/body)
+   '("d" . hydra-lookup/body)
    '("P" . org-roam-crm/body)
    ;; Use SPC (0-9) for digit arguments.
    '("1" . meow-digit-argument)
