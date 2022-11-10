@@ -107,5 +107,56 @@
   :hook (prog-mode . indent-guide-mode)
   :ensure t)
 
+;; neotree
+(leaf neotree
+  :doc "Sidebar for dired"
+  :url "https://github.com/jaypei/emacs-neotree"
+  :ensure t
+  :bind
+  ("<f9>" . neotree-projectile-toggle)
+  :custom
+  (neo-theme             . 'nerd)
+  (neo-cwd-line-style    . 'button)
+  (neo-autorefresh       . t)
+  (neo-show-hidden-files . t)
+  (neo-mode-line-type    . nil)
+  (neo-window-fixed-size . nil)
+  :hook (neotree-mode-hook . neo-hide-nano-header)
+  :hook (neotree-mode-hook . hide-mode-line-mode)
+  :preface
+  (defun neo-hide-nano-header ()
+    "Hide nano header."
+    (interactive)
+    (setq header-line-format ""))
+  (defun neotree-projectile-toggle ()
+    "Toggle function for projectile."
+    (interactive)
+    (let ((project-dir
+           (ignore-errors
+             (projectile-project-root)))
+          (file-name (buffer-file-name)))
+      (if (and (fboundp 'neo-global--window-exists-p)
+               (neo-global--window-exists-p))
+          (neotree-hide)
+        (progn
+          (neotree-show)
+          (if project-dir
+              (neotree-dir project-dir))
+          (if file-name
+              (neotree-find file-name))))))
+  :config
+  ;; Use nerd font in terminal.
+  (unless (window-system)
+    (advice-add
+     'neo-buffer--insert-fold-symbol
+     :override
+     (lambda (name &optional node-name)
+       (let ((n-insert-symbol (lambda (n)
+                                (neo-buffer--insert-with-face
+                                 n 'neo-expand-btn-face))))
+         (or (and (equal name 'open)  (funcall n-insert-symbol " "))
+             (and (equal name 'close) (funcall n-insert-symbol " "))
+             (and (equal name 'leaf)  (funcall n-insert-symbol ""))))))))
+
 
 (provide 'lt-programming)
