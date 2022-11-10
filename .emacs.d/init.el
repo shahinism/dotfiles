@@ -88,4 +88,5 @@
 (require 'lt-go)
 (require 'lt-note)
 (require 'lt-lsp)
+(require 'lt-hydra)
 

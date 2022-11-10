@@ -15,7 +15,8 @@
   :ensure t
   :config
   (defhydra hydra-toggle (:color blue)
-    ("t" vterm-toggle "VTerm Toggle"))
+    ("t" vterm-toggle "VTerm Toggle")
+    ("T" vterm-toggle-cd "VTerm Toggle (Current Directory)"))
 
   (defhydra hydra-lookup (:color blue)
     ("." devdocs-lookup "DevDocs Lookup"))
@@ -169,7 +170,6 @@ _SPC_ cancel	_o_nly this   	_d_elete
    '("." . meow-bounds-of-thing)
    '("[" . meow-beginning-of-thing)
    '("]" . meow-end-of-thing)
-   '("/" . consult-line)
    '("a" . meow-append)
    '("A" . meow-open-below)
    '("b" . meow-back-word)
@@ -222,5 +222,53 @@ _SPC_ cancel	_o_nly this   	_d_elete
   :config
   (setq meow-use-clipboard t)
   (meow-setup))
+
+(leaf *global-bindings
+  :init
+  (define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
+  :bind
+  (;; Move Buffer
+   ("M-," . previous-buffer)
+   ("M-." . next-buffer)
+   ;; Shell Command
+   ("M-!" . async-shell-command)
+   ("M-@" . shell-command)))
+
+;; Avy
+(leaf avy
+  :doc "Jump to things in tree-style"
+  :url "https://github.com/abo-abo/avy"
+  :ensure t)
+
+(leaf avy-zap
+  :doc "Zap to char using avy"
+  :url "https://github.com/cute-jumper/avy-zap"
+  :ensure t)
+
+(leaf *hydra-goto
+  :doc "Search and move cursor"
+  :bind ("M-j" . *hydra-goto/body)
+  :pretty-hydra
+  ((:title " Goto" :color blue :quit-key "q" :foreign-keys warn :separator "-")
+   ("Got"
+    (("i" avy-goto-char       "char")
+     ("t" avy-goto-char-timer "timer")
+     ("w" avy-goto-word-2     "word")
+     ("j" avy-resume "resume"))
+    "Line"
+    (("h" avy-goto-line        "head")
+     ("e" avy-goto-end-of-line "end")
+     ("n" consult-goto-line    "number"))
+    "Topic"
+    (("o"  consult-outline      "outline")
+     ("m"  consult-imenu        "imenu")
+     ("gm" consult-global-imenu "global imenu"))
+    "Error"
+    ((","  flycheck-previous-error "previous" :exit nil)
+     ("."  flycheck-next-error "next" :exit nil)
+     ("l" consult-flycheck "list"))
+    "Spell"
+    ((">"  flyspell-goto-next-error "next" :exit nil)
+     ("cc" flyspell-correct-at-point "correct" :exit nil)))))
 
 (provide 'lt-meow)

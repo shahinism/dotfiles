@@ -19,7 +19,6 @@
   :ensure t
   :global-minor-mode editorconfig-mode)
 
-
 ;; flyspell + UI
 (leaf flyspell
   :doc "Spell checker"
@@ -43,5 +42,11 @@
   ("C-M-i" . flyspell-correct-at-point)
   :custom
   (flyspell-correct-interface . #'flyspell-correct-completing-read))
+
+(leaf anzu
+  :doc "Displays current match and total matches information"
+  :url "https://github.com/emacsorphanage/anzu"
+  :ensure t
+  :bind ("M-r" . anzu-query-replace-regexp))
 
 (provide 'lt-editing)
