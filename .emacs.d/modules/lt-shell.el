@@ -115,9 +115,6 @@
 
 (use-package vterm-toggle
   :config
-  (global-set-key [f12] 'vterm-toggle)
-  (global-set-key [C-f12] 'vterm-toggle-cd)
-
   ;; you can cd to the directory where your previous buffer file exists
   ;; after you have toggle to the vterm buffer with `vterm-toggle'.
   (define-key vterm-mode-map [(control return)]   #'vterm-toggle-insert-cd)
@@ -143,5 +140,8 @@
                  (reusable-frames . visible)
                  (window-height . 0.3)))
   )
+
+(use-package hide-mode-line
+  :hook (vterm-mode . hide-mode-line-mode))
 
 (provide 'lt-shell)

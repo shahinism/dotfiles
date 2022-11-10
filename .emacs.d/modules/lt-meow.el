@@ -9,8 +9,11 @@
 
 (use-package hydra
   :config
-  (defhydra hydra-lookup ()
-    ("." devdocs-lookup))
+  (defhydra hydra-toggle (:color blue)
+    ("t" vterm-toggle "VTerm Toggle"))
+
+  (defhydra hydra-lookup (:color blue)
+    ("." devdocs-lookup "DevDocs Lookup"))
 
   (defhydra hydra-window ()
     "
@@ -128,6 +131,7 @@ _SPC_ cancel	_o_nly this   	_d_elete
    '("v" . magit-status)
    '("l" . hydra-lsp-bridge/body)
    '("d" . hydra-lookup/body)
+   '("t" . hydra-toggle/body)
    '("P" . org-roam-crm/body)
    ;; Use SPC (0-9) for digit arguments.
    '("1" . meow-digit-argument)
