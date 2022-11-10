@@ -16,6 +16,12 @@ function download_aws_lambda {
 # opam configuration
 [[ ! -r /home/shahin/.opam/opam-init/init.zsh ]] || source /home/shahin/.opam/opam-init/init.zsh > /dev/null 2> /dev/null
 
+# Go
+export PATH=$PATH:$HOME/go/bin
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+
 # Editor Setup
 export ALTERNATE_EDITOR=""
 export EDITOR="emacsclient -t"                  # $EDITOR opens in terminal
