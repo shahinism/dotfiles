@@ -48,7 +48,7 @@
       auto-save-default nil)
 
 ;; Remember the position in the buffer
-(save-place-mode 1)
+(save-place-mode +1)
 
 ;; Helper commands
 (use-package crux)

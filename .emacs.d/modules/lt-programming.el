@@ -37,47 +37,58 @@
 ;; )
 
 ;;; Flycheck
-(use-package flycheck
-  :config
-  (global-flycheck-mode)
+(leaf flycheck
+  :doc "On the fly syntax checking."
+  :ensure t
+  :global-minor-mode global-flycheck-mode
+  :bind (("M-n" . flycheck-next-error)
+         ("M-p" . flycheck-previous-error))
+  :custom
+  (flycheck-display-errors-delay . 0)
   )
 
-(use-package devdocs)
+(leaf devdocs :ensure t)
 
 ;; Yasnippet
-(use-package yasnippet
-  :config
-  (yas-reload-all)
-  (add-hook 'prog-mode-hook #'yas-minor-mode)
-)
+(leaf yasnippet
+  :doc "Template system"
+  :url "https://github.com/joaotavora/yasnippet"
+  :ensure t
+  :hook   (prog-mode-hook . yas-minor-mode)
+  :custom (yas-snippet-dirs . '("~/.emacs.d/snippets"))
+  :config (yas-reload-all))
 
-(use-package yasnippet-snippets
-  :after yasnippet)
+(leaf yasnippet-snippets
+  :after  yasnippet
+  :ensure t)
 
-(use-package consult-yasnippet
-  :after yasnippet consult)
+(leaf consult-yasnippet
+  :after  yasnippet consult
+  :ensure t)
 
 ;; Linum
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode)
 
-(use-package markdown-mode)
-(use-package dumb-jump)
-(use-package dumb-jump)
-(use-package magit)
-(use-package terraform-mode)
-(use-package consult-eglot
-  :after consult eglot)
+(leaf markdown-mode :ensure t)
+(leaf dumb-jump :ensure t)
+(leaf rainbow-mode :ensure t)
+(leaf magit :ensure t)
+(leaf terraform-mode :ensure t)
+(leaf consult-eglot
+  :after consult eglot
+  :ensure t)
 
 ;; Fix trailing spaces but only in modified lines
-(use-package ws-butler
-  :hook (prog-mode . ws-butler-mode))
+(leaf ws-butler
+  :hook   (prog-mode . ws-butler-mode)
+  :ensure t)
 
-(use-package yaml-mode)
+(leaf yaml-mode :ensure t)
 
-(use-package indent-guide
-  :hook (prog-mode . indent-guide-mode))
+(leaf indent-guide
+  :hook (prog-mode . indent-guide-mode)
+  :ensure t)
 
-(use-package rainbow-mode)
 
 (provide 'lt-programming)

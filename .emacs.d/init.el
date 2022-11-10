@@ -28,6 +28,24 @@
 ;; Configure use-package to use straight.el by default
 (use-package straight
              :custom (straight-use-package-by-default t))
+;; leaf
+(eval-and-compile
+  (package-initialize)
+  (unless (package-installed-p 'leaf)
+    (package-refresh-contents)
+    (package-install 'leaf))
+
+  (leaf leaf-keywords
+    :ensure t
+    :init
+    ;; optional packages if you want to use :hydra, :el-get, :blackout,,,
+    (leaf hydra :ensure t)
+    (leaf el-get :ensure t)
+    (leaf blackout :ensure t)
+
+    :config
+    ;; initialize leaf-keywords.el
+    (leaf-keywords-init)))
 
 ;; Add modules folder to the load path
 (add-to-list 'load-path (expand-file-name "modules/" user-emacs-directory))
