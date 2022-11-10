@@ -2,7 +2,8 @@
 
 ; Configuration
 ;; Org
-(use-package org
+(leaf org
+  :ensure t
   :config
   (require 'org-tempo) ;; enable org templates; by default it's disabled
   ;; on Org > 9.2, more info:
@@ -35,21 +36,24 @@
     (require 'org-id))
   )
 
-(use-package org-appear
+(leaf org-appear
+  :ensure t
   :after org
   :config
   (add-hook 'org-mode-hook 'org-appear-mode)
   )
 
 ;; Fancy bullets
-(use-package org-bullets
+(leaf org-bullets
+  :ensure t
   :after org
   :config
   (add-hook 'org-mode-hook #'org-bullets-mode)
 )
 
 ;; Org-roam
-(use-package org-roam
+(leaf org-roam
+  :ensure t
   :after org
   :init
   (setq org-roam-v2-ack t
@@ -64,7 +68,8 @@
   )
 
 ;; Deft
-(use-package deft
+(leaf deft
+  :ensure t
   :config
   (setq deft-directory org-directory
         deft-recursive t
@@ -72,7 +77,8 @@
         deft-use-filename-as-title t)
   )
 ;; Org Download
-(use-package org-download
+(leaf org-download
+  :ensure t
   :config
   (setq org-download-method 'directory
         org-download-heading-lvl nil

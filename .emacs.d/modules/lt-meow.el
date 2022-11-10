@@ -1,13 +1,14 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
-(use-package consult-ag)
-(use-package ace-window)
-(use-package windmove)
-(use-package projectile
+(leaf ace-window :ensure t)
+(leaf windmove :ensure t)
+(leaf projectile
+  :ensure t
   :config
   (projectile-mode +1))
 
-(use-package hydra
+(leaf hydra
+  :ensure t
   :config
   (defhydra hydra-toggle (:color blue)
     ("t" vterm-toggle "VTerm Toggle"))
@@ -91,7 +92,7 @@ _SPC_ cancel	_o_nly this   	_d_elete
   _d_: dir
 
 "
-    ("a"   counsel-ag)
+    ("a"   counsel-projectile-ag)
     ("b"   counsel-projectile-switch-to-buffer)
     ("c"   projectile-invalidate-cache)
     ("d"   counsel-projectile-find-dir)
@@ -210,7 +211,8 @@ _SPC_ cancel	_o_nly this   	_d_elete
    '("'" . repeat)
    '("<escape>" . ignore)))
 
-(use-package meow
+(leaf meow
+  :ensure t
   :config
   (setq meow-use-clipboard t)
   (meow-setup)

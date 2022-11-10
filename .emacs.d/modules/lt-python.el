@@ -10,7 +10,8 @@
 (when (fboundp #'devdocs-lookup)
   (add-hook 'python-mode-hook #'python-doc))
 
-(use-package anaconda-mode
+(leaf anaconda-mode
+  :ensure t
   :config
   (add-hook 'python-mode-hook #'anaconda-mode)
 
@@ -20,11 +21,13 @@
    (expand-file-name "anaconda-mode" lt/config-var-dir))
   )
 
-(use-package blacken
+(leaf blacken
+  :ensure t
   :config
   (add-hook 'python-mode-hook #'blacken-mode)
   )
-(use-package pyvenv
+(leaf pyvenv
+  :ensure t
   :config
   (add-hook 'python-mode-hook #'pyenv-mode)
   (add-hook 'python-mode-hook #'pyenv-tracking-mode)
@@ -41,7 +44,8 @@
 (customize-set-variable 'python-indent-guess-indent-offset-verbose nil)
 
 ;;; numpydoc
-(use-package numpydoc
+(leaf numpydoc
+  :ensure t
   :config
   (customize-set-variable 'numpydoc-insert-examples-block nil)
   (customize-set-variable 'numpydoc-template-long nil)

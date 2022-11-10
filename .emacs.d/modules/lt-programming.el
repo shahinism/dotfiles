@@ -5,12 +5,13 @@
 (which-function-mode 1)
 
 ;; font-lock annotations like TODO in the source code
-(use-package hl-todo
+(leaf hl-todo
+  :ensure t
   :config
   (global-hl-todo-mode 1)
 )
 ;; Citre
-(use-package citre)
+(leaf citre)
 ;; NOTE enabling citre-config, will automatically enable citre-mode
 ;; where the conditions are met (tag file available), and consequently
 ;; injects tags as part of autocompletion stack (for both vertico and
@@ -18,17 +19,19 @@
 ;; (require 'citre-config)
 
 ;; TreeSitter
-(use-package tree-sitter
+(leaf tree-sitter
+  :ensure t
   :config
   (global-tree-sitter-mode)
 )
 
-(use-package tree-sitter-langs
+(leaf tree-sitter-langs
+  :ensure t
   :after tree-sitter)
 
 ;;; Eglot
 ;;  shutdown server when last managed buffer is killed
-;; (use-package eglot
+;; (leaf eglot
 ;;   :init
 ;;   (customize-set-variable 'eglot-autoshutdown t)
 
@@ -38,6 +41,7 @@
 
 ;;; Flycheck
 (leaf flycheck
+  :ensure t
   :doc "On the fly syntax checking."
   :ensure t
   :global-minor-mode global-flycheck-mode

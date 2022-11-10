@@ -51,6 +51,6 @@
 (save-place-mode +1)
 
 ;; Helper commands
-(use-package crux)
+(leaf crux :ensure t)
 
 (provide 'lt-default)

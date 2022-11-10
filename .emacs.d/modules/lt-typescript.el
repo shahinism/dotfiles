@@ -1,13 +1,14 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
-(use-package js2-refactor)
+(leaf js2-refactor :ensure t)
 
 ;; Functions
 (defun typescript-doc ()
   (interactive)
   (setq-local devdocs-current-docs '("typescript")))
 
-(use-package typescript-mode
+(leaf typescript-mode
+  :ensure t
   :config
 
   ;; Hooks

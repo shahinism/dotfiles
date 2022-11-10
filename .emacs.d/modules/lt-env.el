@@ -1,6 +1,7 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
-(use-package direnv
+(leaf direnv
+  :ensure t
   :config
   (direnv-mode))
 

@@ -1,6 +1,7 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
-(use-package exec-path-from-shell
+(leaf exec-path-from-shell
+  :ensure t
   :config
 
   (setq exec-path-from-shell-check-startup-files nil)

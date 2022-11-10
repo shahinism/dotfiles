@@ -1,7 +1,7 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
-(use-package all-the-icons)
-(use-package elisp-demos)
+(leaf all-the-icons :ensure t)
+(leaf elisp-demos :ensure t)
 
 ;;; Font
 (defun lt/ui--set-default-font (spec)
@@ -16,7 +16,8 @@ accepted by `set-default-attribute'."
 (lt/ui--set-default-font '(:font "FiraCode Nerd Font" :weight regular :height 100))
 
 ;;; Modeline
-(use-package doom-modeline
+(leaf doom-modeline
+  :ensure t
   :config
 
   (add-hook 'after-init-hook #'doom-modeline-mode)
@@ -31,7 +32,8 @@ accepted by `set-default-attribute'."
 ;;;; Help Buffers
 
 ;; Make `describe-*' screens more helpful
-(use-package helpful
+(leaf helpful
+  :ensure t
   :config
   (define-key helpful-mode-map [remap revert-buffer] #'helpful-update)
   (global-set-key [remap describe-command] #'helpful-command)
@@ -46,7 +48,7 @@ accepted by `set-default-attribute'."
   )
 
 ;; Theme
-;; (use-package doom-themes
+;; (leaf doom-themes
  ;;  :config
  ;;  (setq doom-themes-enable-bold t
  ;;        doom-themes-enable-italic t)
@@ -56,7 +58,8 @@ accepted by `set-default-attribute'."
 (load-theme 'modus-vivendi t)
 
 ;; which key help
-(use-package which-key
+(leaf which-key
+  :ensure t
   :config
   (which-key-mode)
   )

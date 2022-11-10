@@ -61,24 +61,28 @@
     ))
 
 ;; Configuration
-(use-package eshell-z
+(leaf eshell-z
+  :ensure t
   :config
   (add-hook 'eshell-mode-hook
             (lambda ()
               (require 'eshell-z)))
 )
 
-(use-package esh-help
+(leaf esh-help
+  :ensure t
   :config
   (setup-esh-help-eldoc)
   )
 
-(use-package eshell-did-you-mean
+(leaf eshell-did-you-mean
+  :ensure t
   :config
   (eshell-did-you-mean-setup)
 )
 
-(use-package eshell-syntax-highlighting
+(leaf eshell-syntax-highlighting
+  :ensure t
   :config
   (add-hook 'eshell-mode-hook 'eshell-syntax-highlighting-mode)
   )
@@ -98,12 +102,13 @@
               )))
 
 ;; Vterm
-(use-package vterm
+(leaf vterm
+  :ensure t
   :commands vterm-mode
   :preface
   ;; HACK Because vterm clusmily forces vterm-module.so's compilation on us when
   ;;      the package is loaded, this is necessary to prevent it when
-  ;;      byte-compiling this file (`use-package' blocks eagerly loads packages
+  ;;      byte-compiling this file (`leaf' blocks eagerly loads packages
   ;;      when compiled).
   (when noninteractive
     (advice-add #'vterm-module-compile :override #'ignore)
@@ -113,7 +118,8 @@
         vterm-max-scrollback 5000)
   )
 
-(use-package vterm-toggle
+(leaf vterm-toggle
+  :ensure t
   :config
   ;; you can cd to the directory where your previous buffer file exists
   ;; after you have toggle to the vterm buffer with `vterm-toggle'.
@@ -141,7 +147,8 @@
                  (window-height . 0.3)))
   )
 
-(use-package hide-mode-line
+(leaf hide-mode-line
+  :ensure t
   :hook (vterm-mode . hide-mode-line-mode))
 
 (provide 'lt-shell)
