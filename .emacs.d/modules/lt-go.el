@@ -8,10 +8,6 @@
     (interactive)
     (setq-local dash-docs-docsets '("Go")))
 
-  ;; Hooks
-  (when (fboundp #'eglot-ensure)
-    (add-hook 'go-mode-hook #'eglot-ensure))
-
   (when (fboundp #'dash-docs-search)
     (add-hook 'go-mode-hook #'go-doc))
   )
