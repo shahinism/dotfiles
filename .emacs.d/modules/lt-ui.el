@@ -35,13 +35,15 @@ accepted by `set-default-attribute'."
 (leaf helpful
   :ensure t
   :config
-  (define-key helpful-mode-map [remap revert-buffer] #'helpful-update)
   (global-set-key [remap describe-command] #'helpful-command)
   (global-set-key [remap describe-function] #'helpful-callable)
   (global-set-key [remap describe-key] #'helpful-key)
   (global-set-key [remap describe-symbol] #'helpful-symbol)
   (global-set-key [remap describe-variable] #'helpful-variable)
   (global-set-key (kbd "C-h F") #'helpful-function)
+  
+  (setq counsel-describe-function-function #'helpful-callable
+        counsel-describe-variable-function #'helpful-variable)
 
   ;; Bind extra `describe-*' commands
   (global-set-key (kbd "C-h K") #'describe-keymap)

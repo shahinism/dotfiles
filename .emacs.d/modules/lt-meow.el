@@ -7,6 +7,10 @@
   :config
   (projectile-mode +1))
 
+;; Consult doesn't include `ag` support yet
+(leaf counsel-projectile :ensure t)
+(leaf consult-projectile :ensure t)
+
 (leaf hydra
   :ensure t
   :config
@@ -93,19 +97,19 @@ _SPC_ cancel	_o_nly this   	_d_elete
 
 "
     ("a"   counsel-projectile-ag)
-    ("b"   counsel-projectile-switch-to-buffer)
+    ("b"   consult-projectile-switch-to-buffer)
     ("c"   projectile-invalidate-cache)
-    ("d"   counsel-projectile-find-dir)
-    ("fF" counsel-projectile-find-file)
-    ("ff"  counsel-projectile-find-file-dwim)
+    ("d"   consult-projectile-find-dir)
+    ("fF"  consult-projectile-find-file)
+    ("ff"  projectile-find-file-dwim)
     ("fd"  projectile-find-file-in-directory)
     ("g"   ggtags-update-tags)
     ("i"   projectile-ibuffer)
     ("k"   projectile-kill-buffers)
     ("m"   projectile-multi-occur)
     ("o"   projectile-multi-occur)
-    ("p"   counsel-projectile-switch-project)
-    ("r"   projectile-recentf)
+    ("p"   projectile-switch-project)
+    ("r"   consult-projectile-recentf)
     ("x"   projectile-remove-known-project)
     ("X"   projectile-cleanup-known-projects)
     ("z"   projectile-cache-current-file)
@@ -113,9 +117,9 @@ _SPC_ cancel	_o_nly this   	_d_elete
   )
 
 (defun meow-setup ()
-  (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty
-        meow-use-cursor-position-hack t
-        meow-use-enhanced-selection-effect t)
+ (setq ;; meow-cheatsheet-layout meow-cheatsheet-layout-qwerty
+       meow-use-cursor-position-hack t
+       meow-use-enhanced-selection-effect t)
   (meow-motion-overwrite-define-key
    '("j" . meow-next)
    '("k" . meow-prev)
@@ -165,6 +169,7 @@ _SPC_ cancel	_o_nly this   	_d_elete
    '("." . meow-bounds-of-thing)
    '("[" . meow-beginning-of-thing)
    '("]" . meow-end-of-thing)
+   '("/" . consult-line)
    '("a" . meow-append)
    '("A" . meow-open-below)
    '("b" . meow-back-word)
@@ -213,9 +218,9 @@ _SPC_ cancel	_o_nly this   	_d_elete
 
 (leaf meow
   :ensure t
+  :global-minor-mode meow-global-mode
   :config
   (setq meow-use-clipboard t)
-  (meow-setup)
-  (meow-global-mode 1))
+  (meow-setup))
 
 (provide 'lt-meow)

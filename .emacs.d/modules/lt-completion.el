@@ -104,11 +104,6 @@
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
-(leaf helpful
-  :init
-  (setq counsel-describe-function-function #'helpful-callable)
-  (setq counsel-describe-variable-function #'helpful-variable))
-
 (leaf company
   :doc "Modular in-buffer completion framework"
   :url "http://company-mode.github.io/"

@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
-(use-package web-beautify)
+(leaf web-beautify :ensure t)
 
 (provide 'lt-web)

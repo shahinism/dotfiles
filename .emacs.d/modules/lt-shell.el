@@ -105,6 +105,7 @@
 (leaf vterm
   :ensure t
   :commands vterm-mode
+  :hook (vterm-mode-hook . hide-mode-line-mode)
   :preface
   ;; HACK Because vterm clusmily forces vterm-module.so's compilation on us when
   ;;      the package is loaded, this is necessary to prevent it when
@@ -120,15 +121,14 @@
 
 (leaf vterm-toggle
   :ensure t
+  :bind
+  (:vterm-mode-map
+   ;; you can cd to the directory where your previous buffer file exists
+   ;; after you have toggle to the vterm buffer with `vterm-toggle'.
+   ([(control return)] . vterm-toggle-insert-cd)
+   ("s-n" . vterm-toggle-forward)     ; Switch to next vterm buffer
+   ("s-p" . vterm-toggle-backward))   ; Switch to previous vterm buffer
   :config
-  ;; you can cd to the directory where your previous buffer file exists
-  ;; after you have toggle to the vterm buffer with `vterm-toggle'.
-  (define-key vterm-mode-map [(control return)]   #'vterm-toggle-insert-cd)
-
-                                        ;Switch to next vterm buffer
-  (define-key vterm-mode-map (kbd "s-n")   'vterm-toggle-forward)
-                                        ;Switch to previous vterm buffer
-  (define-key vterm-mode-map (kbd "s-p")   'vterm-toggle-backward)
   (setq vterm-toggle-fullscreen-p nil)
 
   ;; Show buffer in bottom
@@ -147,8 +147,6 @@
                  (window-height . 0.3)))
   )
 
-(leaf hide-mode-line
-  :ensure t
-  :hook (vterm-mode . hide-mode-line-mode))
+(leaf hide-mode-line :ensure t)
 
 (provide 'lt-shell)
