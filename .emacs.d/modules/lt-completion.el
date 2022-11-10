@@ -2,7 +2,7 @@
 
 ;; ivy is splitted into 3 components: ivy, swiper and counsel
 ;; Installing counsel will install all of them to your Emacs
-(use-package counsel
+(leaf counsel
   :ensure t
   :config
   (ivy-mode 1)
@@ -12,85 +12,94 @@
 
   (global-set-key (kbd "C-s") 'swiper))
 
-(use-package ivy-prescient
+(leaf ivy-prescient
   :ensure t
   :config
   (ivy-prescient-mode))
 
-(use-package helpful
+(leaf helpful
   :init
   (setq counsel-describe-function-function #'helpful-callable)
   (setq counsel-describe-variable-function #'helpful-variable))
 
-(use-package company
+(leaf company
+  :doc "Modular in-buffer completion framework"
+  :url "http://company-mode.github.io/"
   :ensure t
-  :config
-  ;; (add-hook 'prog-mode-hook 'global-company-mode)
-  (setq company-idle-delay 0
-        company-minimum-prefix-length 2))
+  :hook (prog-mode-hook . company-mode)
+  :bind
+  ((:company-active-map
+    ("C-n" . company-select-next)
+    ("C-p" . company-select-previous)
+    ("<tab>" . company-complete-common-or-cycle))
+   (:company-search-map
+    ("C-p" . company-select-previous)
+    ("C-n" . company-select-next)))
+  :custom
+  (company-idle-delay  . 0)
+  (company-echo-delay  . 0)
+  (company-ignore-case . t)
+  (company-selection-wrap-around . t)
+  (company-minimum-prefix-length . 1)
+  )
 
-(use-package company-prescient
+(leaf company-prescient
   :after company
   :ensure t
-  :config
-  (company-prescient-mode))
+  :global-minor-mode company-prescient-mode)
 
-;(use-package company-box
-;  :after company
-;  :ensure t
-;  :hook (company-mode . company-box-mode))
-
-(use-package counsel-projectile
+(leaf counsel-projectile
   :ensure t)
 
-(use-package all-the-icons-ivy
+(leaf all-the-icons-ivy
   :ensure t
   :init (add-hook 'after-init-hook 'all-the-icons-ivy-setup))
 
-(use-package ivy-rich
+(leaf ivy-rich
   :ensure t
   :config
   (require 'ivy-rich)
   (ivy-rich-mode 1))
 
-(use-package all-the-icons-ivy-rich
+(leaf all-the-icons-ivy
   :after ivy-rich
-  :config (all-the-icons-ivy-rich-mode 1))
+  :init (add-hook 'after-init-hook 'all-the-icons-ivy-setup)
+  )
 
-(use-package marginalia
+(leaf marginalia
+  :doc "Explain details of the consult candidates"
+  :url "https://github.com/minad/marginalia"
+  :global-minor-mode marginalia-mode
   :ensure t
-  :bind (("M-A" . marginalia-cycle)
-         :map minibuffer-local-map
-         ("M-A" . marginalia-cycle))
-  :init
-  (marginalia-mode))
+  :custom-face
+  (marginalia-documentation . '((t (:foreground "#79a8ff")))))
 
-(use-package embark
+(leaf embark
+  :doc "Mini-Buffer Actions Rooted in Keymaps Resources"
+  :url "https://github.com/oantolin/embark"
   :ensure t
-  :bind
+  :bind*
   (("C-." . embark-act)
    ("C-;" . embark-dwim)
    ("C-h B" . embark-bindings))
-  :init
-  (setq prefix-help-command #'embark-prefix-help-command)
+  :custom
+  (prefix-help-command . #'embark-prefix-help-command)
   :config
-  ;; Hide the mode line of the Embark live/completions buffers
+  (setq embark-action-indicator
+        (lambda (map _target)
+          (which-key--show-keymap "Embark" map nil nil 'no-paging)
+          #'which-key--hide-popup-ignore-command)
+        embark-become-indicator embark-action-indicator)
   (add-to-list 'display-buffer-alist
                '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
                  nil
                  (window-parameters (mode-line-format . none)))))
 
+(leaf embark-consult
+  :ensure t
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
+
 (setq-default abbrev-mode 1)
-
-(use-package yasnippet
-  :defer 2
-  :config
-  (yas-global-mode 1))
-
-(use-package yasnippet-snippets
-  :defer)
-
-(use-package ivy-yasnippet
-  :bind ("C-c y" . ivy-yasnippet))
 
 (provide 'lt-completion)

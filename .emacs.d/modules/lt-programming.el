@@ -72,12 +72,29 @@
 
 (leaf markdown-mode :ensure t)
 (leaf dumb-jump :ensure t)
-(leaf rainbow-mode :ensure t)
-(leaf magit :ensure t)
 (leaf terraform-mode :ensure t)
 (leaf consult-eglot
   :after consult eglot
   :ensure t)
+
+(leaf magit
+  :doc "Complete text-based user interface to Git"
+  :url "https://magit.vc/"
+  :ensure t
+  :init
+  (setq magit-auto-revert-mode nil))
+
+(leaf rainbow-mode
+  :doc "Color letter that indicate the color"
+  :url "https://elpa.gnu.org/packages/rainbow-mode.html"
+  :ensure t
+  :hook (prog-mode-hook . rainbow-mode))
+
+(leaf rainbow-delimiters
+  :doc "Display brackets in rainbow"
+  :url "https://www.emacswiki.org/emacs/RainbowDelimiters"
+  :ensure t
+  :hook (prog-mode-hook . rainbow-delimiters-mode))
 
 ;; Fix trailing spaces but only in modified lines
 (leaf ws-butler
