@@ -75,10 +75,8 @@
 
 (use-package yaml-mode)
 
-(use-package highlight-indent-guides
-  :config
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-  (setq highlight-indent-guides-method 'character))
+(use-package indent-guide
+  :hook (prog-mode . indent-guide-mode))
 
 (use-package rainbow-mode)
 
