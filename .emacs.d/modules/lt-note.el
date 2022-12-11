@@ -90,4 +90,9 @@
   (customize-set-variable 'org-download-image-dir "images")
   )
 
+(use-package org-auto-tangle
+  :load-path "site-lisp/org-auto-tangle/"    ;; this line is necessary only if you cloned the repo in your site-lisp directory 
+  :defer t
+  :hook (org-mode . org-auto-tangle-mode))
+
 (provide 'lt-note)
