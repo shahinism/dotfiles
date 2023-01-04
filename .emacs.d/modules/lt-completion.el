@@ -131,7 +131,7 @@
   (company-idle-delay . 0)
   (company-minimum-prefix-length . 0)
   (company-show-numbers . t)
-  :hook (after-init-hook . global-company-mode))
+  :hook (prog-mode-hook . company-mode))
 
 (leaf company-tabnine
   :ensure t
