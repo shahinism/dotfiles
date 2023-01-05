@@ -37,14 +37,16 @@
   )
 
 (leaf org-appear
+  :url "https://github.com/awth13/org-appear"
+  :doc "Make invisible parts of Org elements appear visible"
   :ensure t
   :after org
   :config
   (add-hook 'org-mode-hook 'org-appear-mode)
   )
 
-;; Fancy bullets
 (leaf org-bullets
+  :doc "Fancy bullets"
   :ensure t
   :after org
   :config
@@ -77,8 +79,9 @@
         deft-strip-summary-regexp ":PROPERTIES:\n\\(.+\n\\)+:END:\n"
         deft-use-filename-as-title t)
   )
-;; Org Download
+
 (leaf org-download
+  :url "https://github.com/abo-abo/org-download"
   :ensure t
   :config
   (setq org-download-method 'directory
@@ -91,6 +94,7 @@
   )
 
 (use-package org-auto-tangle
+  :url "https://github.com/yilkalargaw/org-auto-tangle"
   :defer t
   :hook (org-mode . org-auto-tangle-mode))
 
