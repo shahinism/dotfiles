@@ -103,3 +103,7 @@ application/xhtml+xml=firefox.desktop
 application/xml=firefox.desktop
 application/json=firefox.desktop
 application/pdf=org.pwmt.zathura.desktop
+x-scheme-handler/msteams=teams.desktop
+
+[Added Associations]
+video/x-matroska=vlc.desktop;
