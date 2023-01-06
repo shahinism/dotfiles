@@ -1,0 +1,56 @@
+* Shahin's Personal Dotfiles
+:PROPERTIES:
+:CUSTOM_ID: shahins-personal-dotfiles
+:END:
+Hi, this is my personal dot files repository and there are two main
+reason for me to share them here:
+
+1. Easy sync between different machines.
+2. Easy to refer to my code when talking about my setup with a friend or
+   a colleague.
+
+* What I Use
+:PROPERTIES:
+:CUSTOM_ID: what-i-use
+:END:
+** Software
+:PROPERTIES:
+:CUSTOM_ID: software
+:END:
+1. [[https://www.gnu.org/software/emacs/][Gnu Emacs]] with
+   - [[https://orgmode.org/][Org Mode]]
+   - [[https://magit.vc/][Magit]]
+   - [[https://github.com/meow-edit/meow][Meow]]
+   - And many others
+2. [[https://www.qtile.org/][Qtile]]
+3. [[https://gnupg.org/][GnuPG]]
+4. [[https://www.zsh.org/][ZSH]] with:
+   1. [[https://antigen.sharats.me/][Antigen]]
+   2. [[https://starship.rs/][Starship]]
+5. [[https://nextdns.io/][NextDNS]]
+6. [[https://github.com/blueman-project/blueman][Blueman]]
+7. [[https://flameshot.org/][Flameshot]]
+8. [[https://dunst-project.org/][Dunst]]
+9. [[https://github.com/coldfix/udiskie][udiskie]]
+10. [[https://bitbucket.org/raymonad/xss-lock/src/master/][xss-lock]]
+11. [[https://www.freedesktop.org/wiki/Software/PulseAudio/][PulseAudio]]
+12. [[https://gitlab.gnome.org/GNOME/network-manager-applet][nm-applet]]
+13. [[https://sw.kovidgoyal.net/kitty/][kitty]]
+14. [[https://github.com/tmux/tmux/wiki][tmux]]
+15. [[https://ranger.github.io/][ranger]]
+16. [[https://github.com/clvv/fasd][fasd]] (not maintained anymore!)
+17. [[https://asdf-vm.com/][asdf]]
+18. [[https://www.mozilla.org/en-US/firefox/new/][Firefox]] with:
+    - [[https://github.com/tridactyl/tridactyl][tridactyl]]
+    - [[https://github.com/mbnuqw/sidebery][Sideberry]]
+    - [[https://bitwarden.com/][bitwarden]]
+
+* Todos [0%]
+** [ ] Move ~tridactyl~ configuration over here
+** [ ] Replace Fasd
+** [ ] Allocate software to Qtile group
+** [ ] Support multi-screen
+** [ ] Support home device
+** [ ] Configure Syncthing
+** [ ] Configure backup strategy
+** [ ] Move GnuPG configuration here
