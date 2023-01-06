@@ -9,6 +9,32 @@ reason for me to share them here:
 2. Easy to refer to my code when talking about my setup with a friend or
    a colleague.
 
+** Philosophy
+
+- Everything should be configured through files, so I can make backup
+  of them and re-use on other devices I own.
+- The software I use should have minimal memory footprint. Fully
+  fledged desktop environments or the new IDE in town might be
+  comfortable to use, but in high intense debug sessions, I don't want
+  to worry about my memory consumption. Example:
+  + Intellij! Set aside, the abstraction it adds to help developers,
+    sometimes gets in the way of the actual maintenance like when it
+    involves Spark applications on JVM stack.
+- I prefer to use keybindings to communicate with my tools as much as
+  possible.
+- Prefer fully fledged programming languages for configuration,
+  instead of DSL. DSL's will limit you, while with a programming
+  language the sky is your limit. Example:
+  - ~Qtile~ instead of ~i3~ or ~wayland~.
+  - ~CDK~ instead of ~Terraform~. ~Ansible~ is an exception for now, there
+    is no better alternative for it yet.
+- If possible to re-use one tool for many purposes, I'll do that. It
+  means, I can re-use my knowledge around that tool, to achieve what I
+  need, without learning a new tool. Example:
+  + Use `org-mode` and `org-roam` instead of `obsidian`, which is
+    cool, and provides things that is harder to support in Emacs, but
+    I don't need all of those features either.
+
 * What I Use
 :PROPERTIES:
 :CUSTOM_ID: what-i-use
@@ -21,6 +47,7 @@ reason for me to share them here:
    - [[https://orgmode.org/][Org Mode]]
    - [[https://magit.vc/][Magit]]
    - [[https://github.com/meow-edit/meow][Meow]]
+   - [[https://www.tabnine.com/][tabnine]]
    - And many others
 2. [[https://www.qtile.org/][Qtile]]
 3. [[https://gnupg.org/][GnuPG]]
@@ -44,6 +71,7 @@ reason for me to share them here:
     - [[https://github.com/tridactyl/tridactyl][tridactyl]]
     - [[https://github.com/mbnuqw/sidebery][Sideberry]]
     - [[https://bitwarden.com/][bitwarden]]
+    - And some other
 
 * Todos [0%]
 ** [ ] Move ~tridactyl~ configuration over here
@@ -54,3 +82,5 @@ reason for me to share them here:
 ** [ ] Configure Syncthing
 ** [ ] Configure backup strategy
 ** [ ] Move GnuPG configuration here
+** [ ] Add description on the main tools you use and probably answer the "why?" question
+** [ ] Track Firefox config and add privacy patch to it
