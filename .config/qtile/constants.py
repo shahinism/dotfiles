@@ -11,7 +11,9 @@ AUTOSTART_APPS = [
     # turn display off 2 minutes later
     'xset s 300; xss-lock -- /home/shahin/.config/qtile/bin/lock_screen.py',
     # run notification daemon
-    'killall -qw dunst; dunst &',
+    'killall -qw dunst; dunst',
+    # The awesome screenshot applet
+    'flameshot'
 ]
 
 GET_SPEAKERS_VOLUME_SHELL_CMD = '''
