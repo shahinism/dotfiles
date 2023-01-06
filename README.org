@@ -43,34 +43,40 @@ reason for me to share them here:
 :PROPERTIES:
 :CUSTOM_ID: software
 :END:
-1. [[https://www.gnu.org/software/emacs/][Gnu Emacs]] with
-   - [[https://orgmode.org/][Org Mode]]
-   - [[https://magit.vc/][Magit]]
-   - [[https://github.com/meow-edit/meow][Meow]]
-   - [[https://www.tabnine.com/][tabnine]]
-   - And many others
-2. [[https://www.qtile.org/][Qtile]]
-3. [[https://gnupg.org/][GnuPG]]
-4. [[https://www.zsh.org/][ZSH]] with:
-   1. [[https://antigen.sharats.me/][Antigen]]
-   2. [[https://starship.rs/][Starship]]
-5. [[https://nextdns.io/][NextDNS]]
-6. [[https://github.com/blueman-project/blueman][Blueman]]
-7. [[https://flameshot.org/][Flameshot]]
-8. [[https://dunst-project.org/][Dunst]]
-9. [[https://github.com/coldfix/udiskie][udiskie]]
-10. [[https://bitbucket.org/raymonad/xss-lock/src/master/][xss-lock]]
-11. [[https://www.freedesktop.org/wiki/Software/PulseAudio/][PulseAudio]]
-12. [[https://gitlab.gnome.org/GNOME/network-manager-applet][nm-applet]]
-13. [[https://sw.kovidgoyal.net/kitty/][kitty]]
-14. [[https://github.com/tmux/tmux/wiki][tmux]]
-15. [[https://ranger.github.io/][ranger]]
-16. [[https://github.com/clvv/fasd][fasd]] (not maintained anymore!)
-17. [[https://asdf-vm.com/][asdf]]
-18. [[https://www.mozilla.org/en-US/firefox/new/][Firefox]] with:
-    - [[https://github.com/tridactyl/tridactyl][tridactyl]]
-    - [[https://github.com/mbnuqw/sidebery][Sideberry]]
-    - [[https://bitwarden.com/][bitwarden]]
+1. [[https://www.gnu.org/software/emacs/][Gnu Emacs]] The Lisp Machine, with
+   - [[https://orgmode.org/][Org Mode]] Notion, [[https://en.wikipedia.org/wiki/Org-mode][invented ~20]] years ago!
+   - [[https://magit.vc/][Magit]] no fuss git client.
+   - [[https://github.com/meow-edit/meow][Meow]] a modal editor binding, which is not Evil!
+   - [[https://www.tabnine.com/][tabnine]] smart ass code completion AI.
+   - And many others.
+2. [[https://www.qtile.org/][Qtile]] Python based window manager for Linux.
+3. [[https://gnupg.org/][GnuPG]] Eat the key, and hide inside the vault!
+4. [[https://www.zsh.org/][ZSH]] Bash, but better, with:
+   1. [[https://antigen.sharats.me/][Antigen]] The plugin manager.
+   2. [[https://starship.rs/][Starship]] ~$~.
+5. [[https://nextdns.io/][NextDNS]] Premium DNS configuration.
+6. [[https://github.com/blueman-project/blueman][Blueman]] The bluetooth device manager.
+7. [[https://flameshot.org/][Flameshot]] A picture worth is a thousand words.
+8. [[https://dunst-project.org/][Dunst]] Distraction Agent.
+9. [[https://github.com/coldfix/udiskie][udiskie]] External device management from sys tray.
+10. [[https://bitbucket.org/raymonad/xss-lock/src/master/][xss-lock]] Use different lock screen for X.
+11. [[https://github.com/betterlockscreen/betterlockscreen][Betterlockscreen]] (Put two spaces in the right places).
+12. [[https://www.freedesktop.org/wiki/Software/PulseAudio/][PulseAudio]] Handle the only thing MacOS is good at!
+13. [[https://gitlab.gnome.org/GNOME/network-manager-applet][nm-applet]] Save myself from curses when I'm not connecting from
+    home!
+14. [[https://sw.kovidgoyal.net/kitty/][kitty]] 🐈!
+15. [[https://github.com/tmux/tmux/wiki][tmux]] Because I always need another terminal!
+16. [[https://ranger.github.io/][ranger]] The file manager.
+17. [[https://github.com/clvv/fasd][fasd]] *(not maintained anymore!)* move around terminal with the speed
+    of light.
+18. [[https://asdf-vm.com/][asdf]] The therapist who make Python 2 and 3 have their relation
+    back. She'll do it for anything else you can imagine.
+19. [[https://github.com/junegunn/fzf][fzf]] Finds the best option, no matter the shitty input!
+20. [[https://www.mozilla.org/en-US/firefox/new/][Firefox]], Yep, Yep, I like the fox better with:
+    - [[https://github.com/tridactyl/tridactyl][tridactyl]] Just more keybindings, customizations and lighter UI!
+    - [[https://github.com/mbnuqw/sidebery][Sideberry]] Well, didn't expect this one, but the way it organizes
+      related tabs, seems to be more helpful than the normal tab bar.
+    - [[https://bitwarden.com/][bitwarden]] Mind your own business 😒.
     - And some other
 
 * Todos [0%]
@@ -82,5 +88,5 @@ reason for me to share them here:
 ** [ ] Configure Syncthing
 ** [ ] Configure backup strategy
 ** [ ] Move GnuPG configuration here
-** [ ] Add description on the main tools you use and probably answer the "why?" question
 ** [ ] Track Firefox config and add privacy patch to it
+** [ ] Switch to [[https://pipewire.org/][Pipewire]]
