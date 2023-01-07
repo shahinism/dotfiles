@@ -13,7 +13,7 @@ from libqtile.widget.backlight import ChangeDirection
 
 import hooks
 import widgets
-from constants import *
+from utils import *
 
 from qtile_extras.widget.decorations import BorderDecoration
 

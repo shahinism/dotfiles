@@ -4,7 +4,7 @@ import libqtile.hook
 
 from libqtile.log_utils import logger
 
-from constants import AUTOSTART_APPS
+from utils import AUTOSTART_APPS
 
 
 @libqtile.hook.subscribe.startup

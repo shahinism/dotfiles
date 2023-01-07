@@ -34,7 +34,6 @@ reason for me to share them here:
   + Use `org-mode` and `org-roam` instead of `obsidian`, which is
     cool, and provides things that is harder to support in Emacs, but
     I don't need all of those features either.
-
 * What I Use
 :PROPERTIES:
 :CUSTOM_ID: what-i-use
@@ -78,6 +77,15 @@ reason for me to share them here:
       related tabs, seems to be more helpful than the normal tab bar.
     - [[https://bitwarden.com/][bitwarden]] Mind your own business 😒.
     - And some other
+*** Tried Didn't Work
+**** [[https://librewolf.net/][Librewolf]]
+~tridactyl~ doesn't work with it [[https://github.com/tridactyl/tridactyl/issues/3965][issue]]. There is a suggested issue to
+activate ~native~ in it, but that is unable to manipulate the UI. So for
+now I'll put the idea of switching to it to an ice-box.
+**** [[https://activitywatch.net/][Activitywatch]]
+It doesn't work on [[https://github.com/ActivityWatch/aw-watcher-web][Firefox]]. There are some solutions to install the
+extension on some versions of Firefox, yet still, not something that
+is easy to configure and automate.
 
 * Todos [0%]
 ** [ ] Move ~tridactyl~ configuration over here
