@@ -115,6 +115,11 @@ _SPC_ cancel	_o_nly this   	_d_elete
     ("X"   projectile-cleanup-known-projects)
     ("z"   projectile-cache-current-file)
     ("q"   nil "cancel" :color blue))
+
+  (defhydra hydra-org (:color blue
+                       :hint nil)
+    ("c" org-capture "Capture")
+    ("n" org-roam-node-find "Find roam node"))
   )
 
 (defun meow-setup ()
@@ -138,7 +143,7 @@ _SPC_ cancel	_o_nly this   	_d_elete
    '("l" . hydra-lsp-bridge/body)
    '("d" . hydra-lookup/body)
    '("t" . hydra-toggle/body)
-   '("P" . org-roam-crm/body)
+   '("o" . hydra-org/body)
    ;; Use SPC (0-9) for digit arguments.
    '("1" . meow-digit-argument)
    '("2" . meow-digit-argument)

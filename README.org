@@ -1,0 +1,100 @@
+* Shahin's Personal Dotfiles
+:PROPERTIES:
+:CUSTOM_ID: shahins-personal-dotfiles
+:END:
+Hi, this is my personal dot files repository and there are two main
+reason for me to share them here:
+
+1. Easy sync between different machines.
+2. Easy to refer to my code when talking about my setup with a friend or
+   a colleague.
+
+** Philosophy
+
+- Everything should be configured through files, so I can make backup
+  of them and re-use on other devices I own.
+- The software I use should have minimal memory footprint. Fully
+  fledged desktop environments or the new IDE in town might be
+  comfortable to use, but in high intense debug sessions, I don't want
+  to worry about my memory consumption. Example:
+  + Intellij! Set aside, the abstraction it adds to help developers,
+    sometimes gets in the way of the actual maintenance like when it
+    involves Spark applications on JVM stack.
+- I prefer to use keybindings to communicate with my tools as much as
+  possible.
+- Prefer fully fledged programming languages for configuration,
+  instead of DSL. DSL's will limit you, while with a programming
+  language the sky is your limit. Example:
+  - ~Qtile~ instead of ~i3~ or ~wayland~.
+  - ~CDK~ instead of ~Terraform~. ~Ansible~ is an exception for now, there
+    is no better alternative for it yet.
+- If possible to re-use one tool for many purposes, I'll do that. It
+  means, I can re-use my knowledge around that tool, to achieve what I
+  need, without learning a new tool. Example:
+  + Use `org-mode` and `org-roam` instead of `obsidian`, which is
+    cool, and provides things that is harder to support in Emacs, but
+    I don't need all of those features either.
+* What I Use
+:PROPERTIES:
+:CUSTOM_ID: what-i-use
+:END:
+** Software
+:PROPERTIES:
+:CUSTOM_ID: software
+:END:
+1. [[https://www.gnu.org/software/emacs/][Gnu Emacs]] The Lisp Machine, with
+   - [[https://orgmode.org/][Org Mode]] Notion, [[https://en.wikipedia.org/wiki/Org-mode][invented ~20]] years ago!
+   - [[https://magit.vc/][Magit]] no fuss git client.
+   - [[https://github.com/meow-edit/meow][Meow]] a modal editor binding, which is not Evil!
+   - [[https://www.tabnine.com/][tabnine]] smart ass code completion AI.
+   - And many others.
+2. [[https://www.qtile.org/][Qtile]] Python based window manager for Linux.
+3. [[https://gnupg.org/][GnuPG]] Eat the key, and hide inside the vault!
+4. [[https://www.zsh.org/][ZSH]] Bash, but better, with:
+   1. [[https://antigen.sharats.me/][Antigen]] The plugin manager.
+   2. [[https://starship.rs/][Starship]] ~$~.
+5. [[https://nextdns.io/][NextDNS]] Premium DNS configuration.
+6. [[https://github.com/blueman-project/blueman][Blueman]] The bluetooth device manager.
+7. [[https://flameshot.org/][Flameshot]] A picture worth is a thousand words.
+8. [[https://dunst-project.org/][Dunst]] Distraction Agent.
+9. [[https://github.com/coldfix/udiskie][udiskie]] External device management from sys tray.
+10. [[https://bitbucket.org/raymonad/xss-lock/src/master/][xss-lock]] Use different lock screen for X.
+11. [[https://github.com/betterlockscreen/betterlockscreen][Betterlockscreen]] (Put two spaces in the right places).
+12. [[https://www.freedesktop.org/wiki/Software/PulseAudio/][PulseAudio]] Handle the only thing MacOS is good at!
+13. [[https://gitlab.gnome.org/GNOME/network-manager-applet][nm-applet]] Save myself from curses when I'm not connecting from
+    home!
+14. [[https://sw.kovidgoyal.net/kitty/][kitty]] 🐈!
+15. [[https://github.com/tmux/tmux/wiki][tmux]] Because I always need another terminal!
+16. [[https://ranger.github.io/][ranger]] The file manager.
+17. [[https://github.com/clvv/fasd][fasd]] *(not maintained anymore!)* move around terminal with the speed
+    of light.
+18. [[https://asdf-vm.com/][asdf]] The therapist who make Python 2 and 3 have their relation
+    back. She'll do it for anything else you can imagine.
+19. [[https://github.com/junegunn/fzf][fzf]] Finds the best option, no matter the shitty input!
+20. [[https://www.mozilla.org/en-US/firefox/new/][Firefox]], Yep, Yep, I like the fox better with:
+    - [[https://github.com/tridactyl/tridactyl][tridactyl]] Just more keybindings, customizations and lighter UI!
+    - [[https://github.com/mbnuqw/sidebery][Sideberry]] Well, didn't expect this one, but the way it organizes
+      related tabs, seems to be more helpful than the normal tab bar.
+    - [[https://bitwarden.com/][bitwarden]] Mind your own business 😒.
+    - And some other
+*** Tried Didn't Work
+**** [[https://librewolf.net/][Librewolf]]
+~tridactyl~ doesn't work with it [[https://github.com/tridactyl/tridactyl/issues/3965][issue]]. There is a suggested issue to
+activate ~native~ in it, but that is unable to manipulate the UI. So for
+now I'll put the idea of switching to it to an ice-box.
+**** [[https://activitywatch.net/][Activitywatch]]
+It doesn't work on [[https://github.com/ActivityWatch/aw-watcher-web][Firefox]]. There are some solutions to install the
+extension on some versions of Firefox, yet still, not something that
+is easy to configure and automate.
+
+* Todos [0%]
+** [ ] Move ~tridactyl~ configuration over here
+** [ ] Replace Fasd
+** [ ] Allocate software to Qtile group
+** [ ] Support multi-screen
+** [ ] Support home device
+** [ ] Configure Syncthing
+** [ ] Configure backup strategy
+** [ ] Move GnuPG configuration here
+** [ ] Track Firefox config and add privacy patch to it
+** [ ] Switch to [[https://pipewire.org/][Pipewire]]

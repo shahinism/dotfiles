@@ -37,14 +37,16 @@
   )
 
 (leaf org-appear
+  :url "https://github.com/awth13/org-appear"
+  :doc "Make invisible parts of Org elements appear visible"
   :ensure t
   :after org
   :config
   (add-hook 'org-mode-hook 'org-appear-mode)
   )
 
-;; Fancy bullets
 (leaf org-bullets
+  :doc "Fancy bullets"
   :ensure t
   :after org
   :config
@@ -55,7 +57,6 @@
 (leaf org-roam
   :ensure t
   :after org
-  :commands org-roam-setup
   :init
   (setq org-roam-v2-ack t
         org-directory (concat (getenv "HOME") "/Documents/notes/")
@@ -63,8 +64,9 @@
 
   (unless (f-directory? org-roam-directory)
     (make-directory org-roam-directory t))
-
+  
   :config
+  (require 'org-roam)
   (org-roam-setup)
   )
 
@@ -77,8 +79,9 @@
         deft-strip-summary-regexp ":PROPERTIES:\n\\(.+\n\\)+:END:\n"
         deft-use-filename-as-title t)
   )
-;; Org Download
+
 (leaf org-download
+  :url "https://github.com/abo-abo/org-download"
   :ensure t
   :config
   (setq org-download-method 'directory
@@ -89,5 +92,10 @@
 
   (customize-set-variable 'org-download-image-dir "images")
   )
+
+(use-package org-auto-tangle
+  :url "https://github.com/yilkalargaw/org-auto-tangle"
+  :defer t
+  :hook (org-mode . org-auto-tangle-mode))
 
 (provide 'lt-note)

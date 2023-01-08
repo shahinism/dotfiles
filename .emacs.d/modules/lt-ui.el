@@ -59,6 +59,7 @@ accepted by `set-default-attribute'."
 ;;  )
 (load-theme 'modus-vivendi t)
 
+
 ;; which key help
 (leaf which-key
   :ensure t

@@ -30,6 +30,7 @@
   ("M-y"   . consult-yank-pop)
   ("C-M-s" . consult-line)
   :custom (consult-async-min-input . 1))
+
 (leaf consult-flycheck
   :doc "Consult integration for Flycheck"
   :url "https://github.com/minad/consult-flycheck"
@@ -81,9 +82,10 @@
      ((string-prefix-p "!" pattern)
       `(orderless-without-literal . ,(substring pattern 1)))))
   :custom
-  (completion-styles           . '(orderless))
+  (completion-styles           . '(orderless partial-completion))
   (orderless-style-dispatchers . '(flex-if-apostrophe
-                                   without-if-bang)))
+                                   without-if-bang))
+  (completion-category-overrides '((eglot (styles . (orderless flex))))))
 
 (leaf embark
   :doc "Mini-Buffer Actions Rooted in Keymaps Resources"
@@ -99,36 +101,49 @@
           (which-key--show-keymap "Embark" map nil nil 'no-paging)
           #'which-key--hide-popup-ignore-command)
         embark-become-indicator embark-action-indicator))
+
 (leaf embark-consult
   :ensure t
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
-(leaf company
-  :doc "Modular in-buffer completion framework"
-  :url "http://company-mode.github.io/"
-  :ensure t
-  :hook (prog-mode-hook . company-mode)
-  :bind
-  ((:company-active-map
-    ("C-n" . company-select-next)
-    ("C-p" . company-select-previous)
-    ("<tab>" . company-complete-common-or-cycle))
-   (:company-search-map
-    ("C-p" . company-select-previous)
-    ("C-n" . company-select-next)))
-  :custom
-  (company-idle-delay  . 0)
-  (company-echo-delay  . 0)
-  (company-ignore-case . t)
-  (company-selection-wrap-around . t)
-  (company-minimum-prefix-length . 1)
-  )
 
-(leaf company-prescient
-  :after company
+(leaf orderless
+  ;; :demand t
+  :config
+  (setq completion-styles '(orderless partial-completion)
+        completion-category-defaults nil
+        completion-category-overrides '((file (styles . (partial-completion))))))
+
+(leaf yasnippet
+  ;; :diminish yas-minor-mode
+  :hook (prog-mode . yas-minor-mode)
+  :config
+  (yas-reload-all))
+
+(leaf yasnippet-snippets
+  ;; :defer t
+  :after yasnippet)
+
+(leaf company
   :ensure t
-  :global-minor-mode company-prescient-mode)
+  :custom
+  (company-idle-delay . 0)
+  (company-minimum-prefix-length . 0)
+  (company-show-numbers . t)
+  :hook (prog-mode-hook . company-mode))
+
+(leaf company-tabnine
+  :ensure t
+  :after company
+  :config
+  (add-to-list 'company-backends #'company-tabnine))
+
+(leaf company-box
+  :ensure t
+  :if (display-graphic-p)
+  :after company
+  :hook (company-mode . company-box-mode))
 
 (setq-default abbrev-mode 1)
 
