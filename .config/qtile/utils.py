@@ -14,6 +14,8 @@ AUTOSTART_APPS = [
     'killall -qw dunst; dunst',
     # The awesome screenshot applet
     'flameshot'
+    # Encrypt Everything!
+    'run_keybase -a'
 ]
 
 GET_SPEAKERS_VOLUME_SHELL_CMD = '''
