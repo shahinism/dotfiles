@@ -21,7 +21,15 @@
         org-refile-use-outline-path t
         org-outline-path-complete-in-steps nil
         org-refile-targets
-        '((org-agenda-files . (:maxlevel . 2))))
+        '((org-agenda-files . (:maxlevel . 2)))
+        org-capture-templates
+        '(("t" "Task Entry"        entry
+           (file+headline "~/org/todo.org" "Inbox")
+           "* [ ] %?
+:PROPERTIES:
+:Added:     %U
+:END:" :empty-lines 0)
+          ))
 
   ;; Return or left-click with mouse should follow links
   (customize-set-variable 'org-return-follows-link t)
