@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: dayplan
-# key: dayplan
+# key: dp
 # --
 
 * ${1:[`(format-time-string "%Y-%m-%d %a")`] `(format-time-string "%j")`}
