@@ -14,7 +14,14 @@
         org-todo-keywords '((sequence "[ ](t)" "[*](p)" "[-](n)" "|" "[x](d)" "[c](c@)"))
         org-use-speed-commands t
         org-src-fontify-natively t
-        org-src-tab-acts-natively t)
+        org-src-tab-acts-natively t
+        org-directory "~/org"
+        org-agenda-files (list "~/org")
+        org-log-refile t
+        org-refile-use-outline-path t
+        org-outline-path-complete-in-steps nil
+        org-refile-targets
+        '((org-agenda-files . (:maxlevel . 2))))
 
   ;; Return or left-click with mouse should follow links
   (customize-set-variable 'org-return-follows-link t)
@@ -59,7 +66,6 @@
   :after org
   :init
   (setq org-roam-v2-ack t
-        org-directory (concat (getenv "HOME") "/Documents/notes/")
         org-roam-directory (file-truename org-directory))
 
   (unless (f-directory? org-roam-directory)

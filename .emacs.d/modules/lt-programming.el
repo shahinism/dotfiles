@@ -58,7 +58,9 @@
   :doc "Template system"
   :url "https://github.com/joaotavora/yasnippet"
   :ensure t
-  :hook   (prog-mode-hook . yas-minor-mode)
+  :hook
+  (prog-mode-hook . yas-minor-mode)
+  (org-mode-hook . yas-minor-mode)
   :custom (yas-snippet-dirs . '("~/.emacs.d/snippets"))
   :config (yas-reload-all))
 
