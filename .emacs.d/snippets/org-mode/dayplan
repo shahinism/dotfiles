@@ -3,7 +3,7 @@
 # key: dp
 # --
 
-* ${1:[`(format-time-string "%Y-%m-%d %a")`] `(format-time-string "%j")`}
+* ${1:[`(format-time-string "%Y-%m-%d %a")`]}
 ** Habit [%]
 $2
 ** Work [%]
