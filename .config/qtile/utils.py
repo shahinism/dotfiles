@@ -13,9 +13,11 @@ AUTOSTART_APPS = [
     # run notification daemon
     'killall -qw dunst; dunst',
     # The awesome screenshot applet
-    'flameshot'
+    'flameshot',
     # Encrypt Everything!
-    'run_keybase -a'
+    'run_keybase -a',
+    # Run Espanso
+    'espanso service start --unmanaged'
 ]
 
 GET_SPEAKERS_VOLUME_SHELL_CMD = '''
