@@ -129,7 +129,7 @@
   :ensure t
   :custom
   (company-idle-delay . 0)
-  (company-minimum-prefix-length . 0)
+  (company-minimum-prefix-length . 1)
   (company-show-numbers . t)
   :hook (prog-mode-hook . company-mode))
 
