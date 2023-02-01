@@ -107,9 +107,10 @@
   (customize-set-variable 'org-download-image-dir "images")
   )
 
-(use-package org-auto-tangle
-  :url "https://github.com/yilkalargaw/org-auto-tangle"
-  :defer t
-  :hook (org-mode . org-auto-tangle-mode))
+;; FIXME
+;; (use-package org-auto-tangle
+;;   :url "https://github.com/yilkalargaw/org-auto-tangle"
+;;   :defer t
+;;   :hook (org-mode . org-auto-tangle-mode))
 
 (provide 'lt-note)

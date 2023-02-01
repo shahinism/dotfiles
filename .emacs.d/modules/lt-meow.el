@@ -123,7 +123,7 @@ _SPC_ cancel	_o_nly this   	_d_elete
     ("a" org-agenda "Show Agenda")
     ("r" org-refile "Refile current entry")
     ("d" org-refile-copy "Duplicate current entry")
-    ("o" (find-file "~/org/todo.org")))
+    ("o" (find-file "~/org/todo.org"))))
 
 (defun meow-setup ()
  (setq ;; meow-cheatsheet-layout meow-cheatsheet-layout-qwerty
