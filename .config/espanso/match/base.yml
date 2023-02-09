@@ -45,3 +45,5 @@ matches:
       I hope I've informed you, and your legal department enough.
 
       Regards,
+  - trigger: ":dc"
+    replace: "DataChef"
