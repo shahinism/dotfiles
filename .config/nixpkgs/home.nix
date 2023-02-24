@@ -4,6 +4,7 @@
   imports = [
     ./firefox.nix
     ./zsh.nix
+    ./git.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -43,7 +44,6 @@
     brave
     slack
     xclip
-    git     # required for Emacs
     fzf
     gnupg
 
@@ -65,6 +65,7 @@
     cat = "bat";
     grep = "batgrep";
     ls = "exa";
+    mkdir = "mkdir -pv";
   };
 
   programs = {
