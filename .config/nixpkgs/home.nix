@@ -123,6 +123,8 @@
       '';
 
         settings = {
+          # Main configuration is based on BetterFox @
+          # https://github.com/yokoffing/Betterfox
           ################# FAST FOX #################
           "nglayout.initialpaint.delay" = 0;
           "nglayout.initialpaint.delay_in_oopif" = 0;
