@@ -46,11 +46,14 @@
     xclip
     fzf
     gnupg
+    ripgrep
 
     ranger
     direnv
     rpi-imager
     flameshot
+
+    pulseaudioFull
 
     yubikey-personalization
     yubikey-manager

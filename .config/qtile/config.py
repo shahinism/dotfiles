@@ -15,7 +15,7 @@ import hooks
 import widgets
 from utils import *
 
-from qtile_extras.widget.decorations import BorderDecoration
+# from qtile_extras.widget.decorations import BorderDecoration
 
 mod = "mod4"  # Sets mod key to SUPER/WINDOWS
 mod1 = "mod1"
@@ -314,14 +314,14 @@ def init_widgets_list():
             foreground=colors[0],
             background=colors[6],
             format="%d %b %Y %H:%M",
-            decorations=[
-                BorderDecoration(
-                    colour=colors[6],
-                    border_width=[0, 0, 2, 0],
-                    padding_x=5,
-                    padding_y=None,
-                )
-            ],
+            # decorations=[
+            #     BorderDecoration(
+            #         colour=colors[6],
+            #         border_width=[0, 0, 2, 0],
+            #         padding_x=5,
+            #         padding_y=None,
+            #     )
+            # ],
         ),
     ]
     return widgets_list
