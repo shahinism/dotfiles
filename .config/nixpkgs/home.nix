@@ -122,6 +122,61 @@
         #TabsToolbar { visibility: collapse;  }
       '';
 
+        search = {
+          default = "Startpage.com";
+          force = true;
+          engines = {
+            "Bing".metaData.hidden = true;
+            "Google".metaData.hidden = true;
+            "Amazon.nl".metaData.hidden = true;
+            "Wikipedia (en)".metaData.hidden = true;
+
+            "Startpage.com" = {
+              urls = [{template = "https://www.startpage.com/do/dsearch?query={searchTerms}";}];
+              iconUpdateURL = "https://www.startpage.com/sp/cdn/favicons/favicon--default.ico";
+              updateInterval = 24 * 60 * 60 * 1000; # every day
+              definedAliases = ["@sp"];
+            };
+            
+            "Nix Packages" = {
+              urls = [
+                {
+                  template = "https://search.nixos.org/packages";
+                  params = [
+                    {
+                      name = "type";
+                      value = "packages";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = ["@np"];
+            };
+
+            "NixOS Wiki" = {
+              urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
+              iconUpdateURL = "https://nixos.wiki/favicon.png";
+              updateInterval = 24 * 60 * 60 * 1000; # every day
+              definedAliases = ["@nw"];
+            };
+
+            "Github" = {
+              urls = [
+                {template = "https://github.com/search?q{searchTerms}&type=repositories";}
+              ];
+              iconUpdateURL = "https://github.githubassets.com/favicons/favicon.svg";
+              updateInterval = 24 * 60 * 60 * 1000; # every day
+              defaultAliases = ["@gh"];
+            };
+          };
+        };
+
         settings = {
           # Main configuration is based on BetterFox @
           # https://github.com/yokoffing/Betterfox
@@ -258,10 +313,10 @@
           "permissions.default.geo" = 2;
           "geo.provider.network.url" = "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%";
           "geo.provider.ms-windows-location" = false; # WINDOWS
-            "geo.provider.use_corelocation" = false;  # MAC
-              "geo.provider.use_gpsd" = false;        # LINUX
-                "geo.provider.use_geoclue" = false;   # LINUX
-                  "permissions.manager.defaultsUrl" = "";
+          "geo.provider.use_corelocation" = false;  # MAC
+          "geo.provider.use_gpsd" = false;        # LINUX
+          "geo.provider.use_geoclue" = false;   # LINUX
+          "permissions.manager.defaultsUrl" = "";
           "webchannel.allowObject.urlWhitelist" = "";
 
           # Telemetry
@@ -406,93 +461,93 @@
           # about:support
           ExtensionSettings = {
             "uBlock0@raymondhill.net" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
             };
             "tridactyl.vim.betas.nonewtab@cmcaine.co.uk" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://tridactyl.cmcaine.co.uk/betas/nonewtab/tridactyl_no_new_tab_beta-latest.xpi";
               install_sources = [
                 "https://tridactyl.cmcaine.co.uk/betas/*"
               ];
             };
             "queryamoid@kaply.com" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://github.com/mkaply/queryamoid/releases/download/v0.2/query_amo_addon_id-0.2-fx.xpi";
               install_sources = [
                 "https://github.com/mkaply/queryamoid/releases/download/*"
               ];
             };
             "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
             };
             "{d634138d-c276-4fc8-924b-40a0ea21d284}" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi";
             };
             "{97d566da-42c5-4ef4-a03b-5a2e5f7cbcb2}" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/awesome-rss/latest.xpi";
             };
             "clearcache@michel.de.almeida" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/clearcache/latest.xpi";
             };
             "addon@darkreader.org" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
             };
             "enhancerforyoutube@maximerf.addons.mozilla.org" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/enhancer-for-youtube/latest.xpi";
             };
             "@contain-facebook" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/facebook-container/latest.xpi";
             };
             "@testpilot-containers" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi";
             };
             "FirefoxColor@mozilla.com" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/firefox-color/latest.xpi";
             };
             "87677a2c52b84ad3a151a4a72f5bd3c4@jetpack" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/grammarly-1/latest.xpi";
             };
             "linkgopher@oooninja.com" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/link-gopher/latest.xpi";
             };
             "jid1-Om7eJGwA1U8Akg@jetpack" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/octotree/latest.xpi";
             };
             "extension@one-tab.com" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/onetab/latest.xpi";
             };
             "jid0-adyhmvsP91nUO8pRv0Mn2VKeB84@jetpack" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/raindropio/latest.xpi";
             };
             "{0109ab33-601c-417c-844b-e73a1a09ea14}" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/readwise-export/latest.xpi";
             };
             "team@readwise.io" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/readwise-highlighter/latest.xpi";
             };
             "{3c078156-979c-498b-8990-85f7987dd929}" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/sidebery/latest.xpi";
             };
             "{036a55b4-5e72-4d05-a06c-cba2dfcc134a}" = {
-              installation_mode = "force_installed";
+              installation_mode = "normal_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/traduzir-paginas-web/latest.xpi";
             };
           };
@@ -509,7 +564,7 @@
     ".mozilla/firefox/p8klfsds.dev-edition-default/containers.json" = {
       source = ./. + "/firefox/containers.json";
     };
-   
+    
   };
 
   services.emacs.enable = true;
@@ -518,5 +573,4 @@
     enableSshSupport = true;
     pinentryFlavor = "gtk2";
   };
-
 }
