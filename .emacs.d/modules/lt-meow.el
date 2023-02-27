@@ -279,4 +279,9 @@ _SPC_ cancel	_o_nly this   	_d_elete
     ((">"  flyspell-goto-next-error "next" :exit nil)
      ("cc" flyspell-correct-at-point "correct" :exit nil)))))
 
+;; FIXME it jumps for a tab
+(global-set-key (kbd "C->") 'indent-rigidly-right-to-tab-stop)
+(global-set-key (kbd "C-<") 'indent-rigidly-left-to-tab-stop)
+
 (provide 'lt-meow)
+

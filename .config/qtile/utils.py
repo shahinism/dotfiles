@@ -2,22 +2,24 @@ AUTOSTART_APPS = [
     # zoom-in (required for the framework resolution)
     # "xrandr --output eDP-1 --scale 0.8",  # TODO check if it's wayland, run `kanshi` instead.
     # network manager applet
-    "killall -qw nm-applet; nm-applet",
+    "nm-applet",
     # bluetooth applet
-    "killall -qw blueman-applet; blueman-applet",
+    "blueman-applet",
     # run daemon to auto-mount USB disks
-    "killall -qw udiskie; udiskie --no-automount --no-notify --tray",
+    "udiskie --no-automount --no-notify --tray",
     # trigger session lock after 5 minutes of inactivity,
     # turn display off 2 minutes later
     'xset s 300; xss-lock -- /home/shahin/.config/qtile/bin/lock_screen.py',
     # run notification daemon
-    'killall -qw dunst; dunst',
+    'dunst',
     # The awesome screenshot applet
     'flameshot',
     # Encrypt Everything!
     'keybase-gui',
     # Run Espanso
-    'espanso service start --unmanaged'
+    'espanso service start --unmanaged',
+    # Apply screen definition
+    "autorandr --change"
 ]
 
 GET_SPEAKERS_VOLUME_SHELL_CMD = '''

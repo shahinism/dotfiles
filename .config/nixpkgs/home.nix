@@ -61,6 +61,7 @@
     networkmanagerapplet
     blueman
     xss-lock
+    udiskie
 
     pulseaudioFull
     obs-studio
@@ -70,6 +71,8 @@
     yubikey-personalization
     yubikey-manager
     pcscliteWithPolkit
+
+    autorandr
   ];
 
   home.shellAliases = {

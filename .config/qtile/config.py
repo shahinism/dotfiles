@@ -3,7 +3,7 @@ import re
 import socket
 import subprocess
 from libqtile import qtile
-from libqtile.config import Click, Drag, Group, KeyChord, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, KeyChord, Key, Match, Screen, EzKey
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.lazy import lazy
@@ -164,12 +164,35 @@ groups = [
     Group("0", layout="max"),
 ]
 
+group_screen = {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 1,
+    "8": 1,
+    "9": 1,
+}
+
+if len(qtile.screens) == 1:
+    group_screen = {k: 0 for k in group_screen.keys()}
+
+groups = [Group(i) for i in group_screen.keys()]
+
+for group in groups:
+    screen = group_screen[group.name]
+    keys.append(Key([mod], group.name, lazy.group[group.name].toscreen(screen), lazy.to_screen(screen)))
+    keys.append(Key([mod, "shift"], group.name, lazy.window.togroup(group.name)))
+
+
 # Allow MODKEY+[0 through 9] to bind to groups, see https://docs.qtile.org/en/stable/manual/config/groups.html
 # MOD4 + index Number : Switch to Group[index]
 # MOD4 + shift + index Number : Send active window to another Group
-from libqtile.dgroups import simple_key_binder
+# from libqtile.dgroups import simple_key_binder
 
-dgroups_key_binder = simple_key_binder("mod4")
+# dgroups_key_binder = simple_key_binder("mod4")
 
 layout_theme = {
     "border_width": 1,
@@ -238,7 +261,7 @@ def init_widgets_list():
     widgets_list = [
         widget.GroupBox(
             block_highlight_text_color=Colors.background,
-            hide_unused=True,
+            hide_unused=False,
             highlight_method="block",
             rounded=False,
             this_current_screen_border=Colors.active,
@@ -328,18 +351,27 @@ def init_widgets_list():
 
 
 def init_screens():
-    return [
-        Screen(
-            wallpaper="~/.config/qtile/backgrounds/mountain.jpg",
-            wallpaper_mode="stretch",
+    background = "~/.config/qtile/backgrounds/mountain.jpg"
+    wallpaper_mode = "stretch"
+    left = Screen(
+            wallpaper=background,
+            wallpaper_mode=wallpaper_mode,
+            # top=bar.Bar(widgets=init_widgets_list(), opacity=1.0, size=25),
+        )
+    right = Screen(
+            wallpaper=background,
+            wallpaper_mode=wallpaper_mode,
+            # top=bar.Bar(widgets=screen_2_widgets, opacity=1.0, size=25),
+        )
+    middle = Screen(
+            wallpaper=background,
+            wallpaper_mode=wallpaper_mode,
             top=bar.Bar(widgets=init_widgets_list(), opacity=1.0, size=25),
         )
-    ]
-
-
-if __name__ in ["config", "__main__"]:
-    screens = init_screens()
-    widgets_list = init_widgets_list()
+    if len(qtile.screens) == 1:
+        return [middle]
+    else:
+        return [left, right, middle]
 
 
 def window_to_prev_group(qtile):
@@ -387,6 +419,11 @@ mouse = [
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
+if __name__ in ["config", "__main__"]:
+    screens = init_screens()
+    widgets_list = init_widgets_list()
+
+# FIXME indentation and organization
 dgroups_app_rules = []  # type: List
 follow_mouse_focus = True
 bring_front_click = False
@@ -396,29 +433,29 @@ floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         # default_float_rules include: utility, notification, toolbar, splash, dialog,
-        # file_progress, confirm, download and error.
-        *layout.Floating.default_float_rules,
-        Match(title="Confirmation"),  # tastyworks exit box
-        Match(title="Qalculate!"),  # qalculate-gtk
-        Match(wm_class="kdenlive"),  # kdenlive
-        Match(wm_class="pinentry-gtk-2"),  # GPG key password entry
-    ]
-)
-auto_fullscreen = True
-focus_on_window_activation = "smart"
-reconfigure_screens = True
+         # file_progress, confirm, download and error.
+         *layout.Floating.default_float_rules,
+         Match(title="Confirmation"),  # tastyworks exit box
+         Match(title="Qalculate!"),  # qalculate-gtk
+         Match(wm_class="kdenlive"),  # kdenlive
+         Match(wm_class="pinentry-gtk-2"),  # GPG key password entry
+     ]
+ )
+ auto_fullscreen = True
+ focus_on_window_activation = "smart"
+ reconfigure_screens = True
 
-# If things like steam games want to auto-minimize themselves when losing
-# focus, should we respect this or not?
-auto_minimize = True
+ # If things like steam games want to auto-minimize themselves when losing
+ # focus, should we respect this or not?
+ auto_minimize = True
 
 
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
-wmname = "LG3D"
+ # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
+ # string besides java UI toolkits; you can see several discussions on the
+ # mailing lists, GitHub issues, and other WM documentation that suggest setting
+ # this string if your java app doesn't work correctly. We may as well just lie
+ # and say that we're a working one by default.
+ #
+ # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
+ # java that happens to be on java's whitelist.
+ wmname = "LG3D"
