@@ -15,7 +15,7 @@ AUTOSTART_APPS = [
     # The awesome screenshot applet
     'flameshot',
     # Encrypt Everything!
-    'keybase-gui',
+    'KEYBASE_AUTOSTART=1 keybase-gui',
     # Run Espanso
     'espanso service start --unmanaged',
     # Apply screen definition
