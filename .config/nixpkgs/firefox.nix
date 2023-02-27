@@ -454,4 +454,9 @@
     };
     
   };
+
+  xdg.configFile.tridactyl_config = {
+    source = ./firefox/tridactylrc;
+    target = "tridactyl/tridactylrc";
+  };
 }
