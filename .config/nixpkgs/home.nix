@@ -53,6 +53,8 @@
     rofi
     espanso
 
+    pinentry-emacs
+    
     ranger
     direnv
     rpi-imager
@@ -106,7 +108,6 @@
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    pinentryFlavor = "gtk2";
   };
 
   # Enable keybase requirements
