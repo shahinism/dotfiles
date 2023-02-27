@@ -5,6 +5,7 @@
     ./firefox.nix
     ./zsh.nix
     ./git.nix
+    ./dunst.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -48,13 +49,24 @@
     gnupg
     ripgrep
 
+    kitty
+    rofi
+    espanso
+
     ranger
     direnv
     rpi-imager
     flameshot
+    keybase-gui
+    networkmanagerapplet
+    blueman
+    xss-lock
 
     pulseaudioFull
-
+    obs-studio
+    vlc
+    gnome.gnome-tweaks
+    
     yubikey-personalization
     yubikey-manager
     pcscliteWithPolkit
@@ -92,4 +104,8 @@
     enableSshSupport = true;
     pinentryFlavor = "gtk2";
   };
+
+  # Enable keybase requirements
+  services.kbfs.enable = true;
+  services.keybase.enable = true;
 }

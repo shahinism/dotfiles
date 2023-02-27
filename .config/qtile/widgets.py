@@ -6,7 +6,7 @@ from functools import partial
 from libqtile import widget
 from libqtile.log_utils import logger
 from libqtile.widget.battery import BatteryState, BatteryStatus
-from libqtile.command.base import expose_command
+
 
 
 class Battery(widget.Battery):
@@ -130,7 +130,6 @@ class Volume(widget.base.InLoopPollText):
             icon = self._get_volume_icon(volume)
         return f'{icon} {volume}%'
 
-    @expose_command
     def raise_volume(self):
         """
         Raise volume, method is called by Qtile on external event
@@ -138,7 +137,6 @@ class Volume(widget.base.InLoopPollText):
         self.call_process(self.raise_volume_shell_cmd, shell=True)
         self.tick()
 
-    @expose_command
     def lower_volume(self):
         """
         Lower volume, method is called by Qtile on external event
@@ -146,7 +144,6 @@ class Volume(widget.base.InLoopPollText):
         self.call_process(self.lower_volume_shell_cmd, shell=True)
         self.tick()
 
-    @expose_command
     def toggle_mute_volume(self):
         """
         Mute / unmute volume, method is called by Qtile on external event
