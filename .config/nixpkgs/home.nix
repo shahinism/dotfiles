@@ -62,6 +62,7 @@
     blueman
     xss-lock
     udiskie
+    betterlockscreen
 
     pulseaudioFull
     obs-studio
