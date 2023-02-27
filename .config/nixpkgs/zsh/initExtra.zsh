@@ -14,6 +14,13 @@ autoload -U down-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "$terminfo[kcud1]" down-line-or-beginning-search
 
+# Character delete style
+# https://unix.stackexchange.com/a/392199
+autoload -U select-word-style
+select-word-style bash
+
+export WORDCHARS='.-'
+
 # Functions
 docker-clean () {
     docker volume rm $(docuer volume ls -qf dangling=true) || echo "No volume to clean!"
