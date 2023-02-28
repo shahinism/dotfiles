@@ -10,7 +10,7 @@
       '';
 
       search = {
-        default = "DuckDuckGo";
+        default = "Startpage.com";
         force = true;
         engines = {
           "Bing".metaData.hidden = true;

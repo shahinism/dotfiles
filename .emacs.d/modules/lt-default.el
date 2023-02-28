@@ -53,4 +53,15 @@
 ;; Helper commands
 (leaf crux :ensure t)
 
+;; GPG configuration
+(leaf pinentry
+  :ensure t
+  :config
+  (pinentry-start))
+
+(leaf keychain-environment
+  :ensure t
+  :config
+  (keychain-refresh-environment))
+
 (provide 'lt-default)

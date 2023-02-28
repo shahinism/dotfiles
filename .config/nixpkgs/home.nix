@@ -1,6 +1,14 @@
 { config, pkgs, ... }:
 
-{
+let
+  python-packages = p: with p; [
+    # python-lsp-server
+  ];
+  nodejs-packages = with pkgs.nodePackages_latest; [
+    # vscode-langservers-extracted
+    # typescript-language-server
+  ];
+in {
   imports = [
     ./firefox.nix
     ./zsh.nix
@@ -29,6 +37,7 @@
     gnumake
     cmake     # rquired by emacs to build vterm
     gcc
+    git-extras
 
     # Required for Emacs vterm
     libvterm
@@ -41,7 +50,6 @@
     xorg.xkill
     
     htop
-    emacs
     brave
     slack
     xclip
@@ -76,7 +84,15 @@
     pcscliteWithPolkit
 
     autorandr
-  ];
+
+    aws-vault
+    awscli
+
+    libreoffice
+
+    (python3.withPackages python-packages)
+    ((emacsPackagesFor emacsUnstable).emacsWithPackages(epkgs: with epkgs; [ vterm ]))
+  ] ++ nodejs-packages;
 
   home.shellAliases = {
     c = "xclip -selection clipboard";
@@ -104,7 +120,11 @@
     };
   };
   
-  services.emacs.enable = true;
+  services.emacs = {
+      enable = true;
+      package = pkgs.emacsUnstable;
+  };
+
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
@@ -113,4 +133,11 @@
   # Enable keybase requirements
   services.kbfs.enable = true;
   services.keybase.enable = true;
+
+  # TODO declarative configuration with secrets
+  services.syncthing = {
+    enable = true;
+  };
+
+  services.lorri.enable = true;
 }
