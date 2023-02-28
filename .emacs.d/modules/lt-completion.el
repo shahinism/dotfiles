@@ -9,18 +9,18 @@
   (vertico-cycle . t)
   (vertico-count . 18))
 
-(leaf vertico-posframe
-  :doc "Show Vertico in posframe"
-  :url "https://github.com/tumashu/vertico-posframe"
-  :global-minor-mode vertico-posframe-mode
-  :ensure t
-  :custom
-  (vertico-posframe-border-width . 5)
-  (vertico-posframe-parameters
-   .  '((left-fringe . 8)
-        (right-fringe . 8)))
-  :custom-face
-  (vertico-posframe-border . '((t (:background "#323445")))))
+;; (leaf vertico-posframe
+;;   :doc "Show Vertico in posframe"
+;;   :url "https://github.com/tumashu/vertico-posframe"
+;;   :global-minor-mode vertico-posframe-mode
+;;   :ensure t
+;;   :custom
+;;   (vertico-posframe-border-width . 5)
+;;   (vertico-posframe-parameters
+;;    .  '((left-fringe . 8)
+;;         (right-fringe . 8)))
+;;   :custom-face
+;;   (vertico-posframe-border . '((t (:background "#323445")))))
 
 (leaf consult
   :doc "Generate completion candidates and provide commands for completion"
