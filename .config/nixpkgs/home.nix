@@ -87,6 +87,7 @@ in {
 
     aws-vault
     awscli
+    ssm-session-manager-plugin
 
     libreoffice
 
