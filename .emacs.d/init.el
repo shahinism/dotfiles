@@ -7,7 +7,7 @@
           (lambda ()
             (message "Emacs loaded in %s."
                      (emacs-init-time))))
-
+(defvar native-comp-deferred-compilation-deny-list nil)
 ;; Install straight.el
 (defvar bootstrap-version)
 (let ((bootstrap-file

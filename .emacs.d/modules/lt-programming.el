@@ -164,5 +164,6 @@
              (and (equal name 'close) (funcall n-insert-symbol " "))
              (and (equal name 'leaf)  (funcall n-insert-symbol ""))))))))
 
+(leaf nix-mode :ensure t)
 
 (provide 'lt-programming)
