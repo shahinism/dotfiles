@@ -250,6 +250,16 @@ def init_widgets_list():
         widget.CurrentLayout(background=Colors.background, **default_args),
         sep,
         widget.Spacer(background=Colors.background),
+        widget.Pomodoro(
+            background=colors[0],
+            color_active=colors[4],
+            color_break=colors[6],
+            color_inactive=colors[5],
+            prefix_inactive="🍅",
+            prefix_break="🎉 ",
+            prefix_long_break="🥳 ",
+            prefix_paused="🥝"
+        ),
         sep,
         widget.CPUGraph(background=Colors.background),
         widget.Memory(
@@ -301,6 +311,7 @@ def init_widgets_list():
         ),
         sep,
         widget.Systray(background=colors[0], padding=5),
+        sep,
         widget.Clock(
             foreground=colors[0],
             background=colors[6],
