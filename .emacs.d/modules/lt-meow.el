@@ -1,5 +1,8 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
+(leaf ivy :ensure t
+  :config
+  (global-set-key "\C-s" 'swiper))
 (leaf ace-window :ensure t)
 (leaf windmove :ensure t)
 (leaf projectile

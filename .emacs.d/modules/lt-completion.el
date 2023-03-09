@@ -9,19 +9,6 @@
   (vertico-cycle . t)
   (vertico-count . 18))
 
-;; (leaf vertico-posframe
-;;   :doc "Show Vertico in posframe"
-;;   :url "https://github.com/tumashu/vertico-posframe"
-;;   :global-minor-mode vertico-posframe-mode
-;;   :ensure t
-;;   :custom
-;;   (vertico-posframe-border-width . 5)
-;;   (vertico-posframe-parameters
-;;    .  '((left-fringe . 8)
-;;         (right-fringe . 8)))
-;;   :custom-face
-;;   (vertico-posframe-border . '((t (:background "#323445")))))
-
 (leaf consult
   :doc "Generate completion candidates and provide commands for completion"
   :url "https://github.com/minad/consult"
@@ -35,14 +22,17 @@
   :doc "Consult integration for Flycheck"
   :url "https://github.com/minad/consult-flycheck"
   :ensure t)
+
 (leaf affe
   :doc "Asynchronous Fuzzy Finder"
   :url "https://github.com/minad/affe"
   :ensure t)
+
 (leaf consult-ghq
   :doc "Consult integration for ghq (with affe)"
   :url "https://github.com/tomoya/consult-ghq"
   :ensure t)
+
 (leaf consult-custom
   :doc "Custom functions to search org documents"
   :after affe
