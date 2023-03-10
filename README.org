@@ -1,3 +1,6 @@
+#+begin_quote
+This repository is deprecated in favor of [[https://github.com/shahinism/ffflake][My Personal Nix Flakes]] setup.
+#+end_quote
 * Shahin's Personal Dotfiles
 :PROPERTIES:
 :CUSTOM_ID: shahins-personal-dotfiles
